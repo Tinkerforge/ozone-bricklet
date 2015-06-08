@@ -86,6 +86,10 @@ void constructor(void) {
 	PIN_AD.attribute = PIO_DEFAULT;
     BA->PIO_Configure(&PIN_AD, 1);
 
+    PIN_ENABLE.type = PIO_OUTPUT_1;
+    PIN_ENABLE.attribute = PIO_DEFAULT;
+    BA->PIO_Configure(&PIN_ENABLE, 1);
+
 	adc_channel_enable(BS->adc_channel);
 	SLEEP_MS(2);
 

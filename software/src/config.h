@@ -43,6 +43,7 @@
 #define MAX_VOLTAGE 3300
 
 #define PIN_AD (BS->pin1_ad)
+#define PIN_ENABLE (BS->pin3_pwm)
 
 #define MAX_MOVING_AVERAGE 50
 #define BOARD_MCK 64000000
