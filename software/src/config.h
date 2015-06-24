@@ -42,11 +42,7 @@
 #define MAX_ADC_VALUE ((1  << 12) - 1)
 #define MAX_VOLTAGE 3300
 
-<<<<<<< Updated upstream
-#define PIN_AD (BS->pin1_ad)
-=======
 #define PIN_AD     (BS->pin1_ad)
->>>>>>> Stashed changes
 #define PIN_ENABLE (BS->pin3_pwm)
 
 #define MAX_MOVING_AVERAGE 50

@@ -126,10 +126,10 @@ int32_t analog_value_from_mc(const int32_t value) {
 }
 
 int32_t ozone_concentration_from_analog_value(const int32_t value) {
-	// TODO: Calculate Ozone concentration PPB
-	int32_t ozone_concentration = value;
+	// PPB of ozone concentration = 255 * output voltage / 5
+	// Divisor: 5100/3300
 
-	return ozone_concentration;
+	return (value*51*255)/(MAX_ADC_VALUE*10*5); // PPB
 }
 
 void set_moving_average(const ComType com, const SetMovingAverage *data) {
