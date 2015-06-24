@@ -3,7 +3,7 @@ LoadNETAssembly["Tinkerforge",NotebookDirectory[]<>"../../.."]
 
 host="localhost"
 port=4223
-uid="amb"(* Change to your UID *)
+uid="hbo"(* Change to your UID *)
 
 (* Create IPConnection and device object *)
 ipcon=NETNew["Tinkerforge.IPConnection"]
@@ -11,7 +11,8 @@ oz=NETNew["Tinkerforge.BrickletOzone",uid,ipcon]
 ipcon@Connect[host,port]
 
 (* Get current ozone concentration (unit is ppb) *)
-Print["Ozone Concentration: "<>ToString[N[Quantity[oz@GetOzoneConcentration[],"ppb"]]]]
+Print["Ozone Concentration: "<>
+      ToString[N[Quantity[oz@GetOzoneConcentration[],"ppb"]]]]
 
 (* Clean up *)
 ipcon@Disconnect[]

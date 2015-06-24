@@ -1,6 +1,6 @@
 function octave_example_threshold()
     more off;
-    
+
     HOST = "localhost";
     PORT = 4223;
     UID = "amb"; % Change to your UID
@@ -16,7 +16,7 @@ function octave_example_threshold()
 
     % Configure threshold for "greater than 20 ppb"
     oz.setOzoneConcentrationCallbackThreshold(oz.THRESHOLD_OPTION_GREATER, 20, 0);
-    
+
     % Register threshold reached callback to function cb_reached
     oz.addOzoneConcentrationReachedCallback(@cb_reached);
 
@@ -26,5 +26,5 @@ end
 
 % Callback function for ozone concentration callback (parameter has unit ppb)
 function cb_reached(e)
-    fprintf("Ozone Concentration %g ppb.\n", e.ozone_concentration);
+    fprintf("Ozone Concentration: %g ppb\n", e.ozone_concentration);
 end

@@ -51,8 +51,7 @@
                 oz.on(Tinkerforge.BrickletOzone.CALLBACK_OZONE_CONCENTRATION,
                     // Callback function for ozone concentration callback (parameter has unit ppb)
                     function(ozoneConcentration) {
-                        textArea.value += 'Ozone Concentration: '+ozoneConcentration+' ppb';
-                        textArea.value += '\n';
+                        textArea.value += 'Ozone Concentration: '+ozoneConcentration+' ppb\n';
                         textArea.scrollTop = textArea.scrollHeight;
                     }
                 );

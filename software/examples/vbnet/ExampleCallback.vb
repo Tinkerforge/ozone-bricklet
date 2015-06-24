@@ -7,7 +7,7 @@ Module ExampleCallback
 
     ' Callback function for ozone concentration callback (parameter has unit ppb)
     Sub OzoneConcentrationCB(ByVal sender As BrickletOzone, ByVal ozoneConcentration As Integer)
-        System.Console.WriteLine("Ozone Concentration: " + (ozoneConcentration).ToString() + " ppb")
+        System.Console.WriteLine("Ozone Concentration: " + ozoneConcentration.ToString() + " ppb")
     End Sub
 
     Sub Main()

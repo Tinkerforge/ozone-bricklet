@@ -12,7 +12,8 @@ type
     ipcon: TIPConnection;
     oz: TBrickletOzone;
   public
-    procedure OzoneConcentrationCB(sender: TBrickletOzone; const ozoneConcentration: word);
+    procedure OzoneConcentrationCB(sender: TBrickletOzone;
+                                   const ozoneConcentration: word);
     procedure Execute;
   end;
 
@@ -25,7 +26,8 @@ var
   e: TExample;
 
 { Callback function for ozone concentration callback (parameter has unit ppb) }
-procedure TExample.OzoneConcentrationCB(sender: TBrickletOzone; const ozoneConcentration: word);
+procedure TExample.OzoneConcentrationCB(sender: TBrickletOzone;
+                                        const ozoneConcentration: word);
 begin
   WriteLn(Format('Ozone Concentration: %d ppb', [ozoneConcentration]));
 end;

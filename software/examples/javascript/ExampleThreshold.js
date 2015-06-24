@@ -27,7 +27,7 @@ ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
 oz.on(Tinkerforge.BrickletOzone.CALLBACK_OZONE_CONCENTRATION_REACHED,
     // Callback for ozone concentration greater than 20 ppb
     function(ozoneConcentration) {
-        console.log('Ozone Concentration: ' +ozoneConcentration + ' ppb.');
+        console.log('Ozone Concentration: '+ozoneConcentration+' ppb');
     }
 );
 

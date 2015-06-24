@@ -51,8 +51,7 @@
                 oz.on(Tinkerforge.BrickletOzone.CALLBACK_OZONE_CONCENTRATION_REACHED,
                     // Callback for ozone concentration greater than 20 ppb
                     function(ozoneConcentration) {
-                        textArea.value += 'Ozone Concentration ' +ozoneConcentration + ' ppb.\n';
-                        textArea.value += '\n';
+                        textArea.value += 'Ozone Concentration: '+ozoneConcentration+' ppb\n';
                         textArea.scrollTop = textArea.scrollHeight;
                     }
                 );

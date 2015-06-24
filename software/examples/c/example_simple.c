@@ -14,7 +14,7 @@ int main() {
 
 	// Create device object
 	Ozone oz;
-	ozone_create(&oz, UID, &ipcon); 
+	ozone_create(&oz, UID, &ipcon);
 
 	// Connect to brickd
 	if(ipcon_connect(&ipcon, HOST, PORT) < 0) {

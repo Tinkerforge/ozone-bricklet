@@ -9,10 +9,10 @@ class Example
 	// Callback for ozone concentration greater than 20 ppb
 	static void ReachedCB(BrickletOzone sender, int ozoneConcentration)
 	{
-		System.Console.WriteLine("Ozone Concentration: " + ozoneConcentration + " ppb.");
+		System.Console.WriteLine("Ozone Concentration: " + ozoneConcentration + " ppb");
 	}
 
-	static void Main() 
+	static void Main()
 	{
 		IPConnection ipcon = new IPConnection(); // Create IP connection
 		BrickletOzone oz = new BrickletOzone(UID, ipcon); // Create device object

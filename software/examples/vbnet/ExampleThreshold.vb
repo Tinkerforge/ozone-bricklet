@@ -7,7 +7,7 @@ Module ExampleThreshold
 
     ' Callback for ozone concentration greater than 20 ppb
     Sub ReachedCB(ByVal sender As BrickletOzone, ByVal ozoneConcentration As Integer)
-        System.Console.WriteLine("Ozone Concentration " + (ozoneConcentration).ToString() + " ppb.")
+        System.Console.WriteLine("Ozone Concentration: " + ozoneConcentration.ToString() + " ppb")
     End Sub
 
     Sub Main()

@@ -15,7 +15,7 @@ Module ExampleSimple
         ' Get current ozone concentration (unit is ppb)
         Dim ozoneConcentration As Integer = oz.GetOzoneConcentration()
 
-        System.Console.WriteLine("Ozone Concentration: " + (ozoneConcentration).ToString() + " ppb")
+        System.Console.WriteLine("Ozone Concentration: " + ozoneConcentration.ToString() + " ppb")
 
         System.Console.WriteLine("Press key to exit")
         System.Console.ReadLine()

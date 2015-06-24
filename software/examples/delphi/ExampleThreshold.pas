@@ -27,7 +27,7 @@ var
 { Callback for ozone concentration greater than 20 ppb }
 procedure TExample.ReachedCB(sender: TBrickletOzone; const ozoneConcentration: word);
 begin
-  WriteLn(Format('Ozone Concentration: %d ppb.', [ozoneConcentration]));
+  WriteLn(Format('Ozone Concentration: %d ppb', [ozoneConcentration]));
 end;
 
 procedure TExample.Execute;

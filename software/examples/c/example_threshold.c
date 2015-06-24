@@ -11,7 +11,7 @@
 void cb_reached(uint16_t ozone_concentration, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 
-	printf("Ozone concentration: %d ppb.\n", ozone_concentration);
+	printf("Ozone Concentration: %d ppb\n", ozone_concentration);
 }
 
 int main() {
@@ -21,7 +21,7 @@ int main() {
 
 	// Create device object
 	Ozone oz;
-	ozone_create(&oz, UID, &ipcon); 
+	ozone_create(&oz, UID, &ipcon);
 
 	// Connect to brickd
 	if(ipcon_connect(&ipcon, HOST, PORT) < 0) {

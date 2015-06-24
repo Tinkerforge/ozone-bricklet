@@ -21,7 +21,7 @@ oz.set_debounce_period 10000
 
 # Register threshold reached callback for ozone concentration greater than 20 ppb
 oz.register_callback(BrickletOzone::CALLBACK_OZONE_CONCENTRATION_REACHED) do |ozone_concentration|
-  puts "Ozone Concentration #{ozone_concentration} ppb."
+  puts "Ozone Concentration: #{ozone_concentration} ppb"
 end
 
 # Configure threshold for "greater than 20 ppb"

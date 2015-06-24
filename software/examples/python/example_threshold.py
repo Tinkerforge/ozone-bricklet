@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-  
+# -*- coding: utf-8 -*-
 
 HOST = "localhost"
 PORT = 4223
@@ -10,7 +10,7 @@ from tinkerforge.bricklet_ozone import Ozone
 
 # Callback for ozone concentration greater than 20 ppb
 def cb_reached(ozone_concentration):
-    print('Ozone Concentration: ' + str(ozone_concentration) + ' ppb.')
+    print('Ozone Concentration: ' + str(ozone_concentration) + ' ppb')
 
 if __name__ == "__main__":
     ipcon = IPConnection() # Create IP connection

@@ -3,7 +3,7 @@ LoadNETAssembly["Tinkerforge",NotebookDirectory[]<>"../../.."]
 
 host="localhost"
 port=4223
-uid="amb"(* Change to your UID *)
+uid="hbo"(* Change to your UID *)
 
 (* Create IPConnection and device object *)
 ipcon=NETNew["Tinkerforge.IPConnection"]
@@ -16,8 +16,8 @@ ipcon@Connect[host,port]
 oz@SetOzoneConcentrationCallbackPeriod[1000]
 
 (* Callback function for ozone concentration callback (parameter has unit ppb) *)
-OzoneConcentrationCB[sender_,ozone_concentration_]:=
- Print["Ozone Concentration: "<>ToString[N[Quantity[ozone_concentration,"ppb"]]]]
+OzoneConcentrationCB[sender_,ozoneConcentration_]:=
+ Print["Ozone Concentration: "<>ToString[N[Quantity[ozoneConcentration,"ppb"]]]]
 AddEventHandler[oz@OzoneConcentration,OzoneConcentrationCB]
 
 Input["Click OK to exit"]

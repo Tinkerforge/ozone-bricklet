@@ -3,10 +3,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[         0,          0]
-NotebookDataLength[      6160,        149]
-NotebookOptionsPosition[      5728,        128]
-NotebookOutlinePosition[      6066,        143]
-CellTagsIndexPosition[      6023,        140]
+NotebookDataLength[      6510,        149]
+NotebookOptionsPosition[      6084,        128]
+NotebookOutlinePosition[      6416,        143]
+CellTagsIndexPosition[      6373,        140]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -23,13 +23,14 @@ Cell[BoxData[{
    3.600500538026902*^9, 3.600500561851948*^9}, {3.600506097634747*^9, 
    3.600506099012146*^9}, 3.600506136278721*^9, {3.60060805238198*^9, 
    3.600608117803465*^9}, {3.600608826318905*^9, 3.600608826675346*^9}, 
-   3.600685362498796*^9}],
+   3.600685362498796*^9, {3.6441259231772327`*^9, 3.644125950022847*^9}, {
+   3.64412601351112*^9, 3.64412601550908*^9}}],
 
 Cell[BoxData[{
  RowBox[{"host", "=", "\"\<localhost\>\""}], "\[IndentingNewLine]", 
  RowBox[{"port", "=", "4223"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"uid", "=", "\"\<amb\>\""}], 
+  RowBox[{"uid", "=", "\"\<hbo\>\""}], 
   RowBox[{"(*", " ", 
    RowBox[{"Change", " ", "to", " ", "your", " ", "UID"}], " ", "*)"}], 
   "\[IndentingNewLine]", "\[IndentingNewLine]", 
@@ -41,58 +42,55 @@ Cell[BoxData[{
   RowBox[{"NETNew", "[", "\"\<Tinkerforge.IPConnection\>\"", "]"}]}], "\n", 
  RowBox[{"oz", "=", 
   RowBox[{"NETNew", "[", 
-   RowBox[{
-   "\"\<Tinkerforge.BrickletOzone\>\"", ",", "uid", ",", "ipcon"}], 
+   RowBox[{"\"\<Tinkerforge.BrickletOzone\>\"", ",", "uid", ",", "ipcon"}], 
    "]"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"ipcon", "@", 
    RowBox[{"Connect", "[", 
     RowBox[{"host", ",", "port"}], "]"}]}], "\n", "\n", 
   RowBox[{"(*", " ", 
-   RowBox[{
-   "Set", " ", "Period", " ", "for", " ", "ozone concentration", " ", "callback", " ",
-     "to", " ", "1", "s", " ", 
+   RowBox[{"Set", " ", "Period", " ", "for", " ", 
+    RowBox[{"ozone", " ", "concentration"}], " ", "callback", " ", "to", " ", 
+    "1", "s", " ", 
     RowBox[{"(", 
      RowBox[{"1000", "ms"}], ")"}]}], " ", "*)"}], "\n", 
   RowBox[{"(*", " ", 
    RowBox[{"Note", ":", " ", 
-    RowBox[{
-    "The", " ", "ozone concentration", " ", "callback", " ", "is", " ", "only", " ", 
-     "called", " ", "every", " ", "second", " ", "if", " ", "the"}]}], " ", 
-   "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"The", " ", 
+     RowBox[{"ozone", " ", "concentration"}], " ", "callback", " ", "is", " ",
+      "only", " ", "called", " ", "every", " ", "second", " ", "if", " ", 
+     "the"}]}], " ", "*)"}], "\[IndentingNewLine]", 
   RowBox[{"(*", "       ", 
    RowBox[{
-   "ozone concentration", " ", "has", " ", "changed", " ", "since", " ", "the", " ", 
-    "last", " ", 
+    RowBox[{"ozone", " ", "concentration"}], " ", "has", " ", "changed", " ", 
+    "since", " ", "the", " ", "last", " ", 
     RowBox[{"call", "!"}]}], " ", "*)"}]}], "\n", 
  RowBox[{
   RowBox[{"oz", "@", 
-   RowBox[{"SetOzoneConcentrationCallbackPeriod", "[", "1000", "]"}]}], "\n", 
-  "\[IndentingNewLine]", 
+   RowBox[{"SetOzoneConcentrationCallbackPeriod", "[", "1000", "]"}]}], 
+  "\[IndentingNewLine]", "\n", 
   RowBox[{"(*", " ", 
-   RowBox[{
-   "Callback", " ", "function", " ", "for", " ", "ozone concentration", " ", 
-    "callback", " ", 
+   RowBox[{"Callback", " ", "function", " ", "for", " ", 
+    RowBox[{"ozone", " ", "concentration"}], " ", "callback", " ", 
     RowBox[{"(", 
-     RowBox[{"parameter", " ", "has", " ", "unit", " ", 
-      RowBox[{"ppb", "/", "10"}]}], ")"}]}], " ", 
-   "*)"}]}], "\[IndentingNewLine]", 
+     RowBox[{"parameter", " ", "has", " ", "unit", " ", "ppb"}], ")"}]}], " ",
+    "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"OzoneConcentrationCB", "[", 
-   RowBox[{"sender_", ",", "ozone_concentration_"}], "]"}], ":=", 
+   RowBox[{"sender_", ",", "ozoneConcentration_"}], "]"}], ":=", 
   "\[IndentingNewLine]", 
   RowBox[{"Print", "[", 
    RowBox[{"\"\<Ozone Concentration: \>\"", "<>", 
     RowBox[{"ToString", "[", 
      RowBox[{"N", "[", 
       RowBox[{"Quantity", "[", 
-       RowBox[{"ozone_concentration", ",", "\"\<ppb\>\""}], "]"}], "]"}], "]"}]}], 
-   "]"}]}], "\[IndentingNewLine]", 
+       RowBox[{"ozoneConcentration", ",", "\"\<ppb\>\""}], "]"}], "]"}], 
+     "]"}]}], "]"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"AddEventHandler", "[", 
    RowBox[{
-    RowBox[{"oz", "@", "OzoneConcentration"}], ",", "OzoneConcentrationCB"}], "]"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+    RowBox[{"oz", "@", "OzoneConcentration"}], ",", "OzoneConcentrationCB"}], 
+   "]"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Input", "[", "\"\<Click OK to exit\>\"", "]"}], 
   "\[IndentingNewLine]", "\[IndentingNewLine]", 
@@ -124,11 +122,13 @@ Cell[BoxData[{
    3.6006085096134768`*^9}, {3.600608564485358*^9, 3.6006085694976482`*^9}, {
    3.6006086083315887`*^9, 3.600608696478737*^9}, {3.600608732817322*^9, 
    3.600608760452553*^9}, {3.600608824736239*^9, 3.600608825481593*^9}, 
-   3.60060918655473*^9, {3.600609227515625*^9, 3.600609227953993*^9}}]
+   3.60060918655473*^9, {3.600609227515625*^9, 3.600609227953993*^9}, {
+   3.644125892448097*^9, 3.64412591545312*^9}, {3.64412601606828*^9, 
+   3.644126016347178*^9}, {3.644127399858755*^9, 3.644127400181178*^9}}]
 },
 WindowSize->{1521, 867},
-WindowMargins->{{334, Automatic}, {54, Automatic}},
-FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
+WindowMargins->{{333, 66}, {53, Automatic}},
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -142,8 +142,8 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[400, 13, 652, 12, 55, "Input"],
-Cell[1055, 27, 4669, 99, 561, "Input"]
+Cell[400, 13, 748, 13, 55, "Input"],
+Cell[1151, 28, 4929, 98, 561, "Input"]
 }
 ]
 *)

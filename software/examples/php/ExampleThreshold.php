@@ -13,7 +13,7 @@ const UID = 'XYZ'; // Change to your UID
 // Callback for ozone concentration greater than 20 ppb
 function cb_reached($ozoneConcentration)
 {
-    echo "Ozone Concentration " . $ozoneConcentration . " ppb.\n";
+    echo "Ozone Concentration: " . $ozoneConcentration . " ppb\n";
 }
 
 $ipcon = new IPConnection(); // Create IP connection

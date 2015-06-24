@@ -27,5 +27,5 @@ end
 
 % Callback for ozone concentration greater than 20 ppb
 function cb_reached(e)
-    fprintf('Ozone Concentration %g ppb.\n', e.ozone_concentration);
+    fprintf('Ozone Concentration: %g ppb\n', e.ozone_concentration);
 end

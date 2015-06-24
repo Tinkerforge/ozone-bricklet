@@ -1,4 +1,4 @@
-#!/usr/bin/perl  
+#!/usr/bin/perl
 
 use Tinkerforge::IPConnection;
 use Tinkerforge::BrickletOzone;
@@ -15,7 +15,7 @@ sub cb_reached
 {
     my ($ozone_concentration) = @_;
 
-    print "Ozone Concentration ".$ozone_concentration." ppb\n";
+    print "Ozone Concentration: ".$ozone_concentration." ppb\n";
 }
 
 $ipcon->connect(&HOST, &PORT); # Connect to brickd
