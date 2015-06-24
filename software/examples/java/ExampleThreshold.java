@@ -18,14 +18,14 @@ public class ExampleThreshold {
 		// Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 		oz.setDebouncePeriod(10000);
 
-		// Configure threshold for "greater than 20 ppb"
-		oz.setOzoneConcentrationCallbackThreshold('>', (short)(20), (short)0);
+		// Configure threshold for "greater than 75 ppb"
+		oz.setOzoneConcentrationCallbackThreshold('>', (short)75, (short)0);
 
-		// Add and implement ozone concentration reached listener 
-		// (called if ozone concentration is greater than 200 lux)
+		// Add and implement ozone concentration reached listener
+		// (called if ozone concentration is greater than 75 ppb)
 		oz.addOzoneConcentrationReachedListener(new BrickletOzone.OzoneConcentrationReachedListener() {
 			public void ozoneConcentrationReached(int ozoneConcentration) {
-				System.out.println("Ozone Concentration: " + ozoneConcentration + " ppb.");
+				System.out.println("Ozone Concentration: " + ozoneConcentration + " ppb");
 			}
 		});
 

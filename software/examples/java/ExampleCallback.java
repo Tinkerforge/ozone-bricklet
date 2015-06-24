@@ -16,7 +16,7 @@ public class ExampleCallback {
 		// Don't use device before ipcon is connected
 
 		// Set Period for ozone concentration callback to 1s (1000ms)
-		// Note: The ozone concentration callback is only called every second if the 
+		// Note: The ozone concentration callback is only called every second if the
 		//       ozone concentration has changed since the last call!
 		oz.setOzoneConcentrationCallbackPeriod(1000);
 
