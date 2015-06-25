@@ -3,7 +3,7 @@ function octave_example_threshold()
 
     HOST = "localhost";
     PORT = 4223;
-    UID = "amb"; % Change to your UID
+    UID = "hbo"; % Change to your UID
 
     ipcon = java_new("com.tinkerforge.IPConnection"); % Create IP connection
     oz = java_new("com.tinkerforge.BrickletOzone", UID, ipcon); % Create device object
@@ -26,5 +26,5 @@ end
 
 % Callback function for ozone concentration callback (parameter has unit ppb)
 function cb_reached(e)
-    fprintf("Ozone Concentration: %g ppb\n", e.ozone_concentration);
+    fprintf("Ozone Concentration: %g ppb\n", e.ozoneConcentration);
 end
