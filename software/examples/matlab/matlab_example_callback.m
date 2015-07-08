@@ -4,7 +4,7 @@ function matlab_example_callback()
 
     HOST = 'localhost';
     PORT = 4223;
-    UID = 'amb'; % Change to your UID
+    UID = 'hhw'; % Change to your UID
 
     ipcon = IPConnection(); % Create IP connection
     oz = BrickletOzone(UID, ipcon); % Create device object
@@ -26,5 +26,5 @@ end
 
 % Callback function for ozone concentration callback (parameter has unit ppb)
 function cb_ozone_concentration(e)
-    fprintf('Ozone Concentration: %g ppb\n', e.ozone_concentration);
+    fprintf('Ozone Concentration: %g ppb\n', e.ozoneConcentration);
 end

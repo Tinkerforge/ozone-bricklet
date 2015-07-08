@@ -4,7 +4,7 @@ function matlab_example_simple()
 
     HOST = 'localhost';
     PORT = 4223;
-    UID = 'amb'; % Change to your UID
+    UID = 'hhw'; % Change to your UID
 
     ipcon = IPConnection(); % Create IP connection
     oz = BrickletOzone(UID, ipcon); % Create device object
@@ -13,7 +13,7 @@ function matlab_example_simple()
     % Don't use device before ipcon is connected
 
     % Get current ozone concentration (unit is ppb)
-    ozone_concentration = al.getOzoneConcentration();
+    ozone_concentration = oz.getOzoneConcentration();
     fprintf('Ozone Concentration: %g ppb\n', ozone_concentration);
 
     input('Press any key to exit...\n', 's');
