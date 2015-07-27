@@ -13,8 +13,8 @@ int main() {
 	ipcon_create(&ipcon);
 
 	// Create device object
-	Ozone oz;
-	ozone_create(&oz, UID, &ipcon);
+	Ozone o;
+	ozone_create(&o, UID, &ipcon);
 
 	// Connect to brickd
 	if(ipcon_connect(&ipcon, HOST, PORT) < 0) {
@@ -25,8 +25,8 @@ int main() {
 
 	// Get current ozone concentration (unit is ppb)
 	uint16_t ozone_concentration;
-	if(ozone_get_ozone_concentration(&oz, &ozone_concentration) < 0) {
-		fprintf(stderr, "Could not get value, probably timeout\n");
+	if(ozone_get_ozone_concentration(&o, &ozone_concentration) < 0) {
+		fprintf(stderr, "Could not get ozone concentration, probably timeout\n");
 		exit(1);
 	}
 

@@ -14,18 +14,18 @@ def cb_ozone_concentration(ozone_concentration):
 
 if __name__ == "__main__":
     ipcon = IPConnection() # Create IP connection
-    oz = Ozone(UID, ipcon) # Create device object
+    o = Ozone(UID, ipcon) # Create device object
 
     ipcon.connect(HOST, PORT) # Connect to brickd
     # Don't use device before ipcon is connected
 
-    # Set Period for ozone concentration callback to 1s (1000ms)
-    # Note: The ozone concentration callback is only called every second if the
-    #       ozone concentration has changed since the last call!
-    oz.set_ozone_concentration_callback_period(1000)
+    # Set period for ozone concentration callback to 1s (1000ms)
+    # Note: The ozone concentration callback is only called every second
+    #       if the ozone concentration has changed since the last call!
+    o.set_ozone_concentration_callback_period(1000)
 
     # Register ozone concentration callback to function cb_ozone_concentration
-    oz.register_callback(oz.CALLBACK_OZONE_CONCENTRATION, cb_ozone_concentration)
+    o.register_callback(o.CALLBACK_OZONE_CONCENTRATION, cb_ozone_concentration)
 
     raw_input('Press key to exit\n') # Use input() in Python 3
     ipcon.disconnect()

@@ -6,8 +6,8 @@ class Example
 	private static int PORT = 4223;
 	private static string UID = "XYZ"; // Change to your UID
 
-	// Callback for ozone concentration greater than 20 ppb
-	static void ReachedCB(BrickletOzone sender, int ozoneConcentration)
+	// Callback function for ozone concentration greater than 20 ppb (parameter has unit ppb)
+	static void OzoneConcentrationReachedCB(BrickletOzone sender, int ozoneConcentration)
 	{
 		System.Console.WriteLine("Ozone Concentration: " + ozoneConcentration + " ppb");
 	}
@@ -15,19 +15,19 @@ class Example
 	static void Main()
 	{
 		IPConnection ipcon = new IPConnection(); // Create IP connection
-		BrickletOzone oz = new BrickletOzone(UID, ipcon); // Create device object
+		BrickletOzone o = new BrickletOzone(UID, ipcon); // Create device object
 
 		ipcon.Connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
 		// Get threshold callbacks with a debounce time of 10 seconds (10000ms)
-		oz.SetDebouncePeriod(10000);
+		o.SetDebouncePeriod(10000);
 
-		// Register threshold reached callback to function ReachedCB
-		oz.OzoneConcentrationReached += ReachedCB;
+		// Register threshold reached callback to function OzoneConcentrationReachedCB
+		o.OzoneConcentrationReached += OzoneConcentrationReachedCB;
 
-		// Configure threshold for "greater than 20 ppb"
-		oz.SetOzoneConcentrationCallbackThreshold('>', 20, 0);
+		// Configure threshold for "greater than 20 ppb" (unit is ppb)
+		o.SetOzoneConcentrationCallbackThreshold('>', 20, 0);
 
 		System.Console.WriteLine("Press enter to exit");
 		System.Console.ReadLine();

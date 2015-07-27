@@ -1,5 +1,5 @@
-import com.tinkerforge.BrickletOzone;
 import com.tinkerforge.IPConnection;
+import com.tinkerforge.BrickletOzone;
 
 public class ExampleThreshold {
 	private static final String HOST = "localhost";
@@ -10,20 +10,19 @@ public class ExampleThreshold {
 	//       might normally want to catch are described in the documentation
 	public static void main(String args[]) throws Exception {
 		IPConnection ipcon = new IPConnection(); // Create IP connection
-		BrickletOzone oz = new BrickletOzone(UID, ipcon); // Create device object
+		BrickletOzone o = new BrickletOzone(UID, ipcon); // Create device object
 
 		ipcon.connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
 		// Get threshold callbacks with a debounce time of 10 seconds (10000ms)
-		oz.setDebouncePeriod(10000);
+		o.setDebouncePeriod(10000);
 
-		// Configure threshold for "greater than 75 ppb"
-		oz.setOzoneConcentrationCallbackThreshold('>', (short)75, (short)0);
+		// Configure threshold for "greater than 20 ppb" (unit is ppb)
+		o.setOzoneConcentrationCallbackThreshold('>', (short)20, (short)0);
 
-		// Add and implement ozone concentration reached listener
-		// (called if ozone concentration is greater than 75 ppb)
-		oz.addOzoneConcentrationReachedListener(new BrickletOzone.OzoneConcentrationReachedListener() {
+		// Add threshold reached listener for ozone concentration greater than 20 ppb (parameter has unit ppb)
+		o.addOzoneConcentrationReachedListener(new BrickletOzone.OzoneConcentrationReachedListener() {
 			public void ozoneConcentrationReached(int ozoneConcentration) {
 				System.out.println("Ozone Concentration: " + ozoneConcentration + " ppb");
 			}

@@ -20,8 +20,8 @@ int main() {
 	ipcon_create(&ipcon);
 
 	// Create device object
-	Ozone oz;
-	ozone_create(&oz, UID, &ipcon);
+	Ozone o;
+	ozone_create(&o, UID, &ipcon);
 
 	// Connect to brickd
 	if(ipcon_connect(&ipcon, HOST, PORT) < 0) {
@@ -30,13 +30,13 @@ int main() {
 	}
 	// Don't use device before ipcon is connected
 
-	// Set Period for ozone concentration callback to 1s (1000ms)
-	// Note: The ozone concentration callback is only called every second if the
-	//       ozone concentration has changed since the last call!
-	ozone_set_ozone_concentration_callback_period(&oz, 1000);
+	// Set period for ozone concentration callback to 1s (1000ms)
+	// Note: The ozone concentration callback is only called every second
+	//       if the ozone concentration has changed since the last call!
+	ozone_set_ozone_concentration_callback_period(&o, 1000);
 
-	// Register ozone concentration callback to function cb_ozone concentration
-	ozone_register_callback(&oz,
+	// Register ozone concentration callback to function cb_ozone_concentration
+	ozone_register_callback(&o,
 	                        OZONE_CALLBACK_OZONE_CONCENTRATION,
 	                        (void *)cb_ozone_concentration,
 	                        NULL);

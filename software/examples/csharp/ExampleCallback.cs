@@ -15,18 +15,18 @@ class Example
 	static void Main()
 	{
 		IPConnection ipcon = new IPConnection(); // Create IP connection
-		BrickletOzone oz = new BrickletOzone(UID, ipcon); // Create device object
+		BrickletOzone o = new BrickletOzone(UID, ipcon); // Create device object
 
 		ipcon.Connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
-		// Set Period for ozone concentration callback to 1s (1000ms)
-		// Note: The ozone concentration callback is only called every second if the
-		//       ozone concentration has changed since the last call!
-		oz.SetOzoneConcentrationCallbackPeriod(1000);
+		// Set period for ozone concentration callback to 1s (1000ms)
+		// Note: The ozone concentration callback is only called every second
+		//       if the ozone concentration has changed since the last call!
+		o.SetOzoneConcentrationCallbackPeriod(1000);
 
-		// Register ozone concentration callback to function Ozone ConcentrationCB
-		oz.OzoneConcentration += OzoneConcentrationCB;
+		// Register ozone concentration callback to function OzoneConcentrationCB
+		o.OzoneConcentration += OzoneConcentrationCB;
 
 		System.Console.WriteLine("Press enter to exit");
 		System.Console.ReadLine();
