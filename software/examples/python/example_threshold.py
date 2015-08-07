@@ -6,7 +6,7 @@ PORT = 4223
 UID = "XYZ" # Change to your UID
 
 from tinkerforge.ip_connection import IPConnection
-from tinkerforge.bricklet_ozone import Ozone
+from tinkerforge.bricklet_ozone import BrickletOzone
 
 # Callback function for ozone concentration greater than 20 ppb (parameter has unit ppb)
 def cb_ozone_concentration_reached(ozone_concentration):
@@ -14,7 +14,7 @@ def cb_ozone_concentration_reached(ozone_concentration):
 
 if __name__ == "__main__":
     ipcon = IPConnection() # Create IP connection
-    o = Ozone(UID, ipcon) # Create device object
+    o = BrickletOzone(UID, ipcon) # Create device object
 
     ipcon.connect(HOST, PORT) # Connect to brickd
     # Don't use device before ipcon is connected
