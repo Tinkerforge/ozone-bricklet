@@ -10,7 +10,7 @@ type
   TExample = class
   private
     ipcon: TIPConnection;
-    oz: TBrickletOzone;
+    o: TBrickletOzone;
   public
     procedure Execute;
   end;
@@ -30,14 +30,14 @@ begin
   ipcon := TIPConnection.Create;
 
   { Create device object }
-  oz := TBrickletOzone.Create(UID, ipcon);
+  o := TBrickletOzone.Create(UID, ipcon);
 
   { Connect to brickd }
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
   { Get current ozone concentration (unit is ppb) }
-  ozoneConcentration := oz.GetOzoneConcentration;
+  ozoneConcentration := o.GetOzoneConcentration;
   WriteLn(Format('Ozone Concentration: %d ppb', [ozoneConcentration]));
 
   WriteLn('Press key to exit');

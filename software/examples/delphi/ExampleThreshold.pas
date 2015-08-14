@@ -10,9 +10,9 @@ type
   TExample = class
   private
     ipcon: TIPConnection;
-    oz: TBrickletOzone;
+    o: TBrickletOzone;
   public
-    procedure ReachedCB(sender: TBrickletOzone; const ozoneConcentration: word);
+    procedure OzoneConcentrationReachedCB(sender: TBrickletOzone; const ozoneConcentration: word);
     procedure Execute;
   end;
 
@@ -24,8 +24,8 @@ const
 var
   e: TExample;
 
-{ Callback for ozone concentration greater than 20 ppb }
-procedure TExample.ReachedCB(sender: TBrickletOzone; const ozoneConcentration: word);
+{ Callback procedure for ozone concentration greater than 20 ppb (parameter has unit ppb) }
+procedure TExample.OzoneConcentrationReachedCB(sender: TBrickletOzone; const ozoneConcentration: word);
 begin
   WriteLn(Format('Ozone Concentration: %d ppb', [ozoneConcentration]));
 end;
@@ -36,20 +36,20 @@ begin
   ipcon := TIPConnection.Create;
 
   { Create device object }
-  oz := TBrickletOzone.Create(UID, ipcon);
+  o := TBrickletOzone.Create(UID, ipcon);
 
   { Connect to brickd }
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
   { Get threshold callbacks with a debounce time of 10 seconds (10000ms) }
-  oz.SetDebouncePeriod(10000);
+  o.SetDebouncePeriod(10000);
 
-  { Register threshold reached callback to procedure ReachedCB }
-  oz.OnOzoneConcentrationReached := {$ifdef FPC}@{$endif}ReachedCB;
+  { Register threshold reached callback to procedure OzoneConcentrationReachedCB }
+  o.OnOzoneConcentrationReached := {$ifdef FPC}@{$endif}OzoneConcentrationReachedCB;
 
-  { Configure threshold for "greater than 20 ppb" }
-  oz.SetOzoneConcentrationCallbackThreshold('>', 20, 0);
+  { Configure threshold for "greater than 20 ppb" (unit is ppb) }
+  o.SetOzoneConcentrationCallbackThreshold('>', 20, 0);
 
   WriteLn('Press key to exit');
   ReadLn;

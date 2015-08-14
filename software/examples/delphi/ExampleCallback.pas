@@ -10,10 +10,9 @@ type
   TExample = class
   private
     ipcon: TIPConnection;
-    oz: TBrickletOzone;
+    o: TBrickletOzone;
   public
-    procedure OzoneConcentrationCB(sender: TBrickletOzone;
-                                   const ozoneConcentration: word);
+    procedure OzoneConcentrationCB(sender: TBrickletOzone; const ozoneConcentration: word);
     procedure Execute;
   end;
 
@@ -25,9 +24,8 @@ const
 var
   e: TExample;
 
-{ Callback function for ozone concentration callback (parameter has unit ppb) }
-procedure TExample.OzoneConcentrationCB(sender: TBrickletOzone;
-                                        const ozoneConcentration: word);
+{ Callback procedure for ozone concentration callback (parameter has unit ppb) }
+procedure TExample.OzoneConcentrationCB(sender: TBrickletOzone; const ozoneConcentration: word);
 begin
   WriteLn(Format('Ozone Concentration: %d ppb', [ozoneConcentration]));
 end;
@@ -38,19 +36,19 @@ begin
   ipcon := TIPConnection.Create;
 
   { Create device object }
-  oz := TBrickletOzone.Create(UID, ipcon);
+  o := TBrickletOzone.Create(UID, ipcon);
 
   { Connect to brickd }
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
-  { Set Period for ozone concentration callback to 1s (1000ms)
-    Note: The ozone concentration callback is only called every second if the
-          ozone concentration has changed since the last call! }
-  oz.SetOzoneConcentrationCallbackPeriod(1000);
+  { Set period for ozone concentration callback to 1s (1000ms)
+    Note: The ozone concentration callback is only called every second
+          if the ozone concentration has changed since the last call! }
+  o.SetOzoneConcentrationCallbackPeriod(1000);
 
   { Register ozone concentration callback to procedure OzoneConcentrationCB }
-  oz.OnOzoneConcentration := {$ifdef FPC}@{$endif}OzoneConcentrationCB;
+  o.OnOzoneConcentration := {$ifdef FPC}@{$endif}OzoneConcentrationCB;
 
   WriteLn('Press key to exit');
   ReadLn;
