@@ -15,7 +15,7 @@ sub cb_ozone_concentration
 {
     my ($ozone_concentration) = @_;
 
-    print "Ozone Concentration: " . $ozone_concentration . " ppb\n";
+    print "Ozone Concentration: $ozone_concentration ppb\n";
 }
 
 $ipcon->connect(&HOST, &PORT); # Connect to brickd
