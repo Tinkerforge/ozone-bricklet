@@ -7,9 +7,6 @@ use constant HOST => 'localhost';
 use constant PORT => 4223;
 use constant UID => 'XYZ'; # Change to your UID
 
-my $ipcon = Tinkerforge::IPConnection->new(); # Create IP connection
-my $o = Tinkerforge::BrickletOzone->new(&UID, $ipcon); # Create device object
-
 # Callback subroutine for ozone concentration callback (parameter has unit ppb)
 sub cb_ozone_concentration
 {
@@ -18,17 +15,20 @@ sub cb_ozone_concentration
     print "Ozone Concentration: $ozone_concentration ppb\n";
 }
 
+my $ipcon = Tinkerforge::IPConnection->new(); # Create IP connection
+my $o = Tinkerforge::BrickletOzone->new(&UID, $ipcon); # Create device object
+
 $ipcon->connect(&HOST, &PORT); # Connect to brickd
 # Don't use device before ipcon is connected
+
+# Register ozone concentration callback to subroutine cb_ozone_concentration
+$o->register_callback($o->CALLBACK_OZONE_CONCENTRATION, 'cb_ozone_concentration');
 
 # Set period for ozone concentration callback to 1s (1000ms)
 # Note: The ozone concentration callback is only called every second
 #       if the ozone concentration has changed since the last call!
 $o->set_ozone_concentration_callback_period(1000);
 
-# Register ozone concentration callback to subroutine cb_ozone_concentration
-$o->register_callback($o->CALLBACK_OZONE_CONCENTRATION, 'cb_ozone_concentration');
-
-print "Press any key to exit...\n";
+print "Press key to exit\n";
 <STDIN>;
 $ipcon->disconnect();

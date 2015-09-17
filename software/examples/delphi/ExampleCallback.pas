@@ -42,13 +42,13 @@ begin
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
+  { Register ozone concentration callback to procedure OzoneConcentrationCB }
+  o.OnOzoneConcentration := {$ifdef FPC}@{$endif}OzoneConcentrationCB;
+
   { Set period for ozone concentration callback to 1s (1000ms)
     Note: The ozone concentration callback is only called every second
           if the ozone concentration has changed since the last call! }
   o.SetOzoneConcentrationCallbackPeriod(1000);
-
-  { Register ozone concentration callback to procedure OzoneConcentrationCB }
-  o.OnOzoneConcentration := {$ifdef FPC}@{$endif}OzoneConcentrationCB;
 
   WriteLn('Press key to exit');
   ReadLn;

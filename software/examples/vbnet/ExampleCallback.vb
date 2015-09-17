@@ -1,3 +1,4 @@
+Imports System
 Imports Tinkerforge
 
 Module ExampleCallback
@@ -5,9 +6,9 @@ Module ExampleCallback
     Const PORT As Integer = 4223
     Const UID As String = "XYZ" ' Change to your UID
 
-    ' Callback function for ozone concentration callback (parameter has unit ppb)
+    ' Callback subroutine for ozone concentration callback (parameter has unit ppb)
     Sub OzoneConcentrationCB(ByVal sender As BrickletOzone, ByVal ozoneConcentration As Integer)
-        System.Console.WriteLine("Ozone Concentration: " + ozoneConcentration.ToString() + " ppb")
+        Console.WriteLine("Ozone Concentration: " + ozoneConcentration.ToString() + " ppb")
     End Sub
 
     Sub Main()
@@ -17,16 +18,16 @@ Module ExampleCallback
         ipcon.Connect(HOST, PORT) ' Connect to brickd
         ' Don't use device before ipcon is connected
 
+        ' Register ozone concentration callback to subroutine OzoneConcentrationCB
+        AddHandler o.OzoneConcentration, AddressOf OzoneConcentrationCB
+
         ' Set period for ozone concentration callback to 1s (1000ms)
         ' Note: The ozone concentration callback is only called every second
         '       if the ozone concentration has changed since the last call!
         o.SetOzoneConcentrationCallbackPeriod(1000)
 
-        ' Register ozone concentration callback to function OzoneConcentrationCB
-        AddHandler o.OzoneConcentration, AddressOf OzoneConcentrationCB
-
-        System.Console.WriteLine("Press key to exit")
-        System.Console.ReadLine()
+        Console.WriteLine("Press key to exit")
+        Console.ReadLine()
         ipcon.Disconnect()
     End Sub
 End Module

@@ -1,3 +1,4 @@
+using System;
 using Tinkerforge;
 
 class Example
@@ -16,10 +17,10 @@ class Example
 
 		// Get current ozone concentration (unit is ppb)
 		int ozoneConcentration = o.GetOzoneConcentration();
-		System.Console.WriteLine("Ozone Concentration: " + ozoneConcentration + " ppb");
+		Console.WriteLine("Ozone Concentration: " + ozoneConcentration + " ppb");
 
-		System.Console.WriteLine("Press enter to exit");
-		System.Console.ReadLine();
+		Console.WriteLine("Press enter to exit");
+		Console.ReadLine();
 		ipcon.Disconnect();
 	}
 }

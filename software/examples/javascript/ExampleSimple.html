@@ -31,23 +31,23 @@
                     ipcon.disconnect();
                 }
                 ipcon = new Tinkerforge.IPConnection(); // Create IP connection
-                var oz = new Tinkerforge.BrickletOzone(UID, ipcon); // Create device object
+                var o = new Tinkerforge.BrickletOzone(UID, ipcon); // Create device object
                 ipcon.connect(HOST, PORT,
                     function(error) {
-                        textArea.value += 'Error: '+error+ '\n';
+                        textArea.value += 'Error: ' + error + '\n';
                     }
                 ); // Connect to brickd
                 // Don't use device before ipcon is connected
 
                 ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
-                    function(connectReason) {
+                    function (connectReason) {
                         // Get current ozone concentration (unit is ppb)
-                        oz.getOzoneConcentration(
-                            function(ozoneConcentration) {
-                                textArea.value += 'OzoneConcentration: '+ozoneConcentration+' ppb\n';
+                        o.getOzoneConcentration(
+                            function (ozoneConcentration) {
+                                textArea.value += 'Ozone Concentration: ' + ozoneConcentration + ' ppb\n';
                             },
-                            function(error) {
-                                textArea.value += 'Error: '+error+'\n';
+                            function (error) {
+                                textArea.value += 'Error: ' + error + '\n';
                             }
                         );
                     }

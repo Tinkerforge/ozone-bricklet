@@ -1,3 +1,4 @@
+using System;
 using Tinkerforge;
 
 class Example
@@ -6,10 +7,10 @@ class Example
 	private static int PORT = 4223;
 	private static string UID = "XYZ"; // Change to your UID
 
-	// Callback function for ozone concentration greater than 20 ppb (parameter has unit ppb)
+	// Callback function for ozone concentration reached callback (parameter has unit ppb)
 	static void OzoneConcentrationReachedCB(BrickletOzone sender, int ozoneConcentration)
 	{
-		System.Console.WriteLine("Ozone Concentration: " + ozoneConcentration + " ppb");
+		Console.WriteLine("Ozone Concentration: " + ozoneConcentration + " ppb");
 	}
 
 	static void Main()
@@ -23,14 +24,14 @@ class Example
 		// Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 		o.SetDebouncePeriod(10000);
 
-		// Register threshold reached callback to function OzoneConcentrationReachedCB
+		// Register ozone concentration reached callback to function OzoneConcentrationReachedCB
 		o.OzoneConcentrationReached += OzoneConcentrationReachedCB;
 
-		// Configure threshold for "greater than 20 ppb" (unit is ppb)
+		// Configure threshold for ozone concentration "greater than 20 ppb" (unit is ppb)
 		o.SetOzoneConcentrationCallbackThreshold('>', 20, 0);
 
-		System.Console.WriteLine("Press enter to exit");
-		System.Console.ReadLine();
+		Console.WriteLine("Press enter to exit");
+		Console.ReadLine();
 		ipcon.Disconnect();
 	}
 }

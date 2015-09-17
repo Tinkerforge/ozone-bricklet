@@ -3,28 +3,28 @@ function octave_example_threshold()
 
     HOST = "localhost";
     PORT = 4223;
-    UID = "hbo"; % Change to your UID
+    UID = "XYZ"; % Change to your UID
 
     ipcon = java_new("com.tinkerforge.IPConnection"); % Create IP connection
-    oz = java_new("com.tinkerforge.BrickletOzone", UID, ipcon); % Create device object
+    o = java_new("com.tinkerforge.BrickletOzone", UID, ipcon); % Create device object
 
     ipcon.connect(HOST, PORT); % Connect to brickd
     % Don't use device before ipcon is connected
 
-    % Set threshold callbacks with a debounce time of 10 seconds (10000ms)
-    oz.setDebouncePeriod(10000);
+    % Get threshold callbacks with a debounce time of 10 seconds (10000ms)
+    o.setDebouncePeriod(10000);
 
-    % Configure threshold for "greater than 20 ppb"
-    oz.setOzoneConcentrationCallbackThreshold(oz.THRESHOLD_OPTION_GREATER, 20, 0);
+    % Register ozone concentration reached callback to function cb_ozone_concentration_reached
+    o.addOzoneConcentrationReachedCallback(@cb_ozone_concentration_reached);
 
-    % Register threshold reached callback to function cb_reached
-    oz.addOzoneConcentrationReachedCallback(@cb_reached);
+    % Configure threshold for ozone concentration "greater than 20 ppb" (unit is ppb)
+    o.setOzoneConcentrationCallbackThreshold(">", 20, 0);
 
-    input("Press any key to exit...\n", "s");
+    input("Press key to exit\n", "s");
     ipcon.disconnect();
 end
 
-% Callback function for ozone concentration callback (parameter has unit ppb)
-function cb_reached(e)
-    fprintf("Ozone Concentration: %g ppb\n", e.ozoneConcentration);
+% Callback function for ozone concentration reached callback (parameter has unit ppb)
+function cb_ozone_concentration_reached(e)
+    fprintf("Ozone Concentration: %d ppb\n", e.ozoneConcentration);
 end

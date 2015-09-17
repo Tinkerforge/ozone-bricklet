@@ -30,16 +30,16 @@ int main(void) {
 	}
 	// Don't use device before ipcon is connected
 
-	// Set period for ozone concentration callback to 1s (1000ms)
-	// Note: The ozone concentration callback is only called every second
-	//       if the ozone concentration has changed since the last call!
-	ozone_set_ozone_concentration_callback_period(&o, 1000);
-
 	// Register ozone concentration callback to function cb_ozone_concentration
 	ozone_register_callback(&o,
 	                        OZONE_CALLBACK_OZONE_CONCENTRATION,
 	                        (void *)cb_ozone_concentration,
 	                        NULL);
+
+	// Set period for ozone concentration callback to 1s (1000ms)
+	// Note: The ozone concentration callback is only called every second
+	//       if the ozone concentration has changed since the last call!
+	ozone_set_ozone_concentration_callback_period(&o, 1000);
 
 	printf("Press key to exit\n");
 	getchar();

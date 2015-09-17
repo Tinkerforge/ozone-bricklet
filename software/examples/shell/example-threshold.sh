@@ -1,15 +1,17 @@
 #!/bin/sh
-# connects to localhost:4223 by default, use --host and --port to change it
+# Connects to localhost:4223 by default, use --host and --port to change this
 
-# change to your UID
-uid=XYZ
+uid=XYZ # Change to your UID
 
-# get threshold callbacks with a debounce time of 10 seconds (10000ms)
+# Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 tinkerforge call ozone-bricklet $uid set-debounce-period 10000
 
-# configure threshold for "greater than 20 ppb"
+# Handle incoming ozone concentration reached callbacks (parameter has unit ppb)
+tinkerforge dispatch ozone-bricklet $uid ozone-concentration-reached &
+
+# Configure threshold for ozone concentration "greater than 20 ppb" (unit is ppb)
 tinkerforge call ozone-bricklet $uid set-ozone-concentration-callback-threshold greater 20 0
 
-# handle incoming ozone concentration-reached callbacks (unit is ppb)
-tinkerforge dispatch ozone-bricklet $uid ozone-concentration-reached\
- --execute "echo Ozone Concentration: {ozone-concentration} ppb"
+echo "Press key to exit"; read dummy
+
+kill -- -$$ # Stop callback dispatch in background

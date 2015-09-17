@@ -15,8 +15,8 @@ $ipcon->connect(&HOST, &PORT); # Connect to brickd
 
 # Get current ozone concentration (unit is ppb)
 my $ozone_concentration = $o->get_ozone_concentration();
-print "Ozone Concentration: " . $ozone_concentration . " ppb\n";
+print "Ozone Concentration: $ozone_concentration ppb\n";
 
-print "Press any key to exit...\n";
+print "Press key to exit\n";
 <STDIN>;
 $ipcon->disconnect();

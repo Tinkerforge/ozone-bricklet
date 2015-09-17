@@ -4,28 +4,28 @@ function matlab_example_threshold()
 
     HOST = 'localhost';
     PORT = 4223;
-    UID = 'hhw'; % Change to your UID
+    UID = 'XYZ'; % Change to your UID
 
     ipcon = IPConnection(); % Create IP connection
-    oz = BrickletOzone(UID, ipcon); % Create device object
+    o = BrickletOzone(UID, ipcon); % Create device object
 
     ipcon.connect(HOST, PORT); % Connect to brickd
     % Don't use device before ipcon is connected
 
-    % Set threshold callbacks with a debounce time of 10 seconds (10000ms)
-    oz.setDebouncePeriod(10000);
+    % Get threshold callbacks with a debounce time of 10 seconds (10000ms)
+    o.setDebouncePeriod(10000);
 
-    % Register threshold reached callback to function cb_reached
-    set(oz, 'OzoneConcentrationReachedCallback', @(h, e) cb_reached(e));
+    % Register ozone concentration reached callback to function cb_ozone_concentration_reached
+    set(o, 'OzoneConcentrationReachedCallback', @(h, e) cb_ozone_concentration_reached(e));
 
-    % Configure threshold for "greater than 20 ppb" (unit is ppb)
-    oz.setOzoneConcentrationCallbackThreshold('>', 20, 0);
+    % Configure threshold for ozone concentration "greater than 20 ppb" (unit is ppb)
+    o.setOzoneConcentrationCallbackThreshold('>', 20, 0);
 
-    input('Press any key to exit...\n', 's');
+    input('Press key to exit\n', 's');
     ipcon.disconnect();
 end
 
-% Callback for ozone concentration greater than 20 ppb
-function cb_reached(e)
-    fprintf('Ozone Concentration: %g ppb\n', e.ozoneConcentration);
+% Callback function for ozone concentration reached callback (parameter has unit ppb)
+function cb_ozone_concentration_reached(e)
+    fprintf('Ozone Concentration: %i ppb\n', e.ozoneConcentration);
 end

@@ -3,29 +3,28 @@ LoadNETAssembly["Tinkerforge",NotebookDirectory[]<>"../../.."]
 
 host="localhost"
 port=4223
-uid="hbo"(* Change to your UID *)
+uid="XYZ"(*Change to your UID*)
 
-(* Create IPConnection and device object *)
+(*Create IPConnection and device object*)
 ipcon=NETNew["Tinkerforge.IPConnection"]
-oz=NETNew["Tinkerforge.BrickletOzone",uid,ipcon]
+o=NETNew["Tinkerforge.BrickletOzone",uid,ipcon]
 ipcon@Connect[host,port]
 
-(* Get threshold callbacks with a debounce time of 10 seconds (10000ms) *)
-oz@SetDebouncePeriod[10000]
+(*Get threshold callbacks with a debounce time of 10 seconds (10000ms)*)
+o@SetDebouncePeriod[10000]
 
-(* Callback for ozone concentration greater than 20 ppb *)
-OzoneConcentrationReachedCB[sender_,ozoneOoncentration_]:=
- Print["Ozone Concentration: "<>ToString[N[Quantity[ozoneOoncentration,"ppb"]]]]
+(*Callback function for ozone concentration reached callback (parameter has unit ppb)*)
+OzoneConcentrationReachedCB[sender_,ozoneConcentration_]:=
+ Print["Ozone Concentration: "<>ToString[N[Quantity[ozoneConcentration,"ppb"]]]]
+AddEventHandler[o@OzoneConcentrationReached,OzoneConcentrationReachedCB]
 
-AddEventHandler[oz@OzoneConcentrationReached,OzoneConcentrationReachedCB]
-
-(* Configure threshold for "greater than 20 ppb" (unit is ppb) *)
+(*Configure threshold for ozone concentration "greater than 20 ppb" (unit is ppb)*)
 option=Tinkerforge`BrickletOzone`THRESHOLDUOPTIONUGREATER
-oz@SetOzoneConcentrationCallbackThreshold[option,20,0]
+o@SetOzoneConcentrationCallbackThreshold[option,20,0]
 
 Input["Click OK to exit"]
 
-(* Clean up *)
+(*Clean up*)
 ipcon@Disconnect[]
-ReleaseNETObject[oz]
+ReleaseNETObject[o]
 ReleaseNETObject[ipcon]

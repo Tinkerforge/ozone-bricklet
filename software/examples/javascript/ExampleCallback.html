@@ -31,27 +31,28 @@
                     ipcon.disconnect();
                 }
                 ipcon = new Tinkerforge.IPConnection(); // Create IP connection
-                var oz = new Tinkerforge.BrickletOzone(UID, ipcon); // Create device object
+                var o = new Tinkerforge.BrickletOzone(UID, ipcon); // Create device object
                 ipcon.connect(HOST, PORT,
                     function(error) {
-                        textArea.value += 'Error: '+error+ '\n';
+                        textArea.value += 'Error: ' + error + '\n';
                     }
                 ); // Connect to brickd
                 // Don't use device before ipcon is connected
 
                 ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
-                    function(connectReason) {
-                        // Set Period for ozone concentration callback to 1s (1000ms)
-                        // Note: The ozone concentration callback is only called every second if the
-                        // ozone concentration has changed since the last call!
-                        oz.setOzoneConcentrationCallbackPeriod(1000);
+                    function (connectReason) {
+                        // Set period for ozone concentration callback to 1s (1000ms)
+                        // Note: The ozone concentration callback is only called every second
+                        //       if the ozone concentration has changed since the last call!
+                        o.setOzoneConcentrationCallbackPeriod(1000);
                     }
                 );
-                // Register position callback
-                oz.on(Tinkerforge.BrickletOzone.CALLBACK_OZONE_CONCENTRATION,
+
+                // Register ozone concentration callback
+                o.on(Tinkerforge.BrickletOzone.CALLBACK_OZONE_CONCENTRATION,
                     // Callback function for ozone concentration callback (parameter has unit ppb)
-                    function(ozoneConcentration) {
-                        textArea.value += 'Ozone Concentration: '+ozoneConcentration+' ppb\n';
+                    function (ozoneConcentration) {
+                        textArea.value += 'Ozone Concentration: ' + ozoneConcentration + ' ppb\n';
                         textArea.scrollTop = textArea.scrollHeight;
                     }
                 );

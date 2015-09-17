@@ -1,3 +1,4 @@
+Imports System
 Imports Tinkerforge
 
 Module ExampleThreshold
@@ -5,9 +6,9 @@ Module ExampleThreshold
     Const PORT As Integer = 4223
     Const UID As String = "XYZ" ' Change to your UID
 
-    ' Callback function for ozone concentration greater than 20 ppb (parameter has unit ppb)
+    ' Callback subroutine for ozone concentration reached callback (parameter has unit ppb)
     Sub OzoneConcentrationReachedCB(ByVal sender As BrickletOzone, ByVal ozoneConcentration As Integer)
-        System.Console.WriteLine("Ozone Concentration: " + ozoneConcentration.ToString() + " ppb")
+        Console.WriteLine("Ozone Concentration: " + ozoneConcentration.ToString() + " ppb")
     End Sub
 
     Sub Main()
@@ -20,14 +21,14 @@ Module ExampleThreshold
         ' Get threshold callbacks with a debounce time of 10 seconds (10000ms)
         o.SetDebouncePeriod(10000)
 
-        ' Register threshold reached callback to function OzoneConcentrationReachedCB
+        ' Register ozone concentration reached callback to subroutine OzoneConcentrationReachedCB
         AddHandler o.OzoneConcentrationReached, AddressOf OzoneConcentrationReachedCB
 
-        ' Configure threshold for "greater than 20 ppb" (unit is ppb)
+        ' Configure threshold for ozone_concentration "greater than 20 ppb" (unit is ppb)
         o.SetOzoneConcentrationCallbackThreshold(">"C, 20, 0)
 
-        System.Console.WriteLine("Press key to exit")
-        System.Console.ReadLine()
+        Console.WriteLine("Press key to exit")
+        Console.ReadLine()
         ipcon.Disconnect()
     End Sub
 End Module

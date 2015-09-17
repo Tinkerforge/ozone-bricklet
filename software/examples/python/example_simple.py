@@ -17,7 +17,7 @@ if __name__ == "__main__":
 
     # Get current ozone concentration (unit is ppb)
     ozone_concentration = o.get_ozone_concentration()
-    print('Ozone Concentration: ' + str(ozone_concentration) + ' ppb')
+    print("Ozone Concentration: " + str(ozone_concentration) + " ppb")
 
-    raw_input('Press key to exit\n') # Use input() in Python 3
+    raw_input("Press key to exit\n") # Use input() in Python 3
     ipcon.disconnect()

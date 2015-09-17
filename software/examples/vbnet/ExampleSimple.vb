@@ -1,3 +1,4 @@
+Imports System
 Imports Tinkerforge
 
 Module ExampleSimple
@@ -14,10 +15,10 @@ Module ExampleSimple
 
         ' Get current ozone concentration (unit is ppb)
         Dim ozoneConcentration As Integer = o.GetOzoneConcentration()
-        System.Console.WriteLine("Ozone Concentration: " + ozoneConcentration.ToString() + " ppb")
+        Console.WriteLine("Ozone Concentration: " + ozoneConcentration.ToString() + " ppb")
 
-        System.Console.WriteLine("Press key to exit")
-        System.Console.ReadLine()
+        Console.WriteLine("Press key to exit")
+        Console.ReadLine()
         ipcon.Disconnect()
     End Sub
 End Module

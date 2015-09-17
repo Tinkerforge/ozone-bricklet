@@ -11,15 +11,14 @@ const PORT = 4223;
 const UID = 'XYZ'; // Change to your UID
 
 $ipcon = new IPConnection(); // Create IP connection
-$oz = new BrickletOzone(UID, $ipcon); // Create device object
+$o = new BrickletOzone(UID, $ipcon); // Create device object
 
 $ipcon->connect(HOST, PORT); // Connect to brickd
 // Don't use device before ipcon is connected
 
 // Get current ozone concentration (unit is ppb)
-$ozoneConcentration = $oz->getOzoneConcentration();
-
-echo "Ozone Concentration: $ozoneConcentration ppb\n";
+$ozone_concentration = $o->getOzoneConcentration();
+echo "Ozone Concentration: $ozone_concentration ppb\n";
 
 echo "Press key to exit\n";
 fgetc(fopen('php://stdin', 'r'));

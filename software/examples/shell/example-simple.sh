@@ -1,8 +1,7 @@
 #!/bin/sh
-# connects to localhost:4223 by default, use --host and --port to change it
+# Connects to localhost:4223 by default, use --host and --port to change this
 
-# change to your UID
-uid=XYZ
+uid=XYZ # Change to your UID
 
-# get current ozone concentration (unit is ppb)
+# Get current ozone concentration (unit is ppb)
 tinkerforge call ozone-bricklet $uid get-ozone-concentration
