@@ -7,7 +7,8 @@ Module ExampleThreshold
     Const UID As String = "XYZ" ' Change to your UID
 
     ' Callback subroutine for ozone concentration reached callback (parameter has unit ppb)
-    Sub OzoneConcentrationReachedCB(ByVal sender As BrickletOzone, ByVal ozoneConcentration As Integer)
+    Sub OzoneConcentrationReachedCB(ByVal sender As BrickletOzone, _
+                                    ByVal ozoneConcentration As Integer)
         Console.WriteLine("Ozone Concentration: " + ozoneConcentration.ToString() + " ppb")
     End Sub
 

@@ -7,7 +7,8 @@ Module ExampleCallback
     Const UID As String = "XYZ" ' Change to your UID
 
     ' Callback subroutine for ozone concentration callback (parameter has unit ppb)
-    Sub OzoneConcentrationCB(ByVal sender As BrickletOzone, ByVal ozoneConcentration As Integer)
+    Sub OzoneConcentrationCB(ByVal sender As BrickletOzone, _
+                             ByVal ozoneConcentration As Integer)
         Console.WriteLine("Ozone Concentration: " + ozoneConcentration.ToString() + " ppb")
     End Sub
 
