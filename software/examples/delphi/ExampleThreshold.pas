@@ -25,7 +25,8 @@ var
   e: TExample;
 
 { Callback procedure for ozone concentration reached callback (parameter has unit ppb) }
-procedure TExample.OzoneConcentrationReachedCB(sender: TBrickletOzone; const ozoneConcentration: word);
+procedure TExample.OzoneConcentrationReachedCB(sender: TBrickletOzone;
+                                               const ozoneConcentration: word);
 begin
   WriteLn(Format('Ozone Concentration: %d ppb', [ozoneConcentration]));
 end;
