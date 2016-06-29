@@ -26,7 +26,8 @@ $ipcon->connect(HOST, PORT); // Connect to brickd
 $o->setDebouncePeriod(10000);
 
 // Register ozone concentration reached callback to function cb_ozoneConcentrationReached
-$o->registerCallback(BrickletOzone::CALLBACK_OZONE_CONCENTRATION_REACHED, 'cb_ozoneConcentrationReached');
+$o->registerCallback(BrickletOzone::CALLBACK_OZONE_CONCENTRATION_REACHED,
+                     'cb_ozoneConcentrationReached');
 
 // Configure threshold for ozone concentration "greater than 20 ppb" (unit is ppb)
 $o->setOzoneConcentrationCallbackThreshold('>', 20, 0);
