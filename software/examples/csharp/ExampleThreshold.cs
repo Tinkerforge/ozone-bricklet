@@ -5,7 +5,7 @@ class Example
 {
 	private static string HOST = "localhost";
 	private static int PORT = 4223;
-	private static string UID = "XYZ"; // Change to your UID
+	private static string UID = "XYZ"; // Change XYZ to the UID of your Ozone Bricklet
 
 	// Callback function for ozone concentration reached callback (parameter has unit ppb)
 	static void OzoneConcentrationReachedCB(BrickletOzone sender, int ozoneConcentration)

@@ -5,7 +5,7 @@ use Tinkerforge::BrickletOzone;
 
 use constant HOST => 'localhost';
 use constant PORT => 4223;
-use constant UID => 'XYZ'; # Change to your UID
+use constant UID => 'XYZ'; # Change XYZ to the UID of your Ozone Bricklet
 
 my $ipcon = Tinkerforge::IPConnection->new(); # Create IP connection
 my $o = Tinkerforge::BrickletOzone->new(&UID, $ipcon); # Create device object

@@ -5,7 +5,7 @@
 
 #define HOST "localhost"
 #define PORT 4223
-#define UID "XYZ" // Change to your UID
+#define UID "XYZ" // Change XYZ to the UID of your Ozone Bricklet
 
 // Callback function for ozone concentration callback (parameter has unit ppb)
 void cb_ozone_concentration(uint16_t ozone_concentration, void *user_data) {

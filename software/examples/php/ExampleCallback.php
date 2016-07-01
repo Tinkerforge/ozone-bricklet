@@ -8,7 +8,7 @@ use Tinkerforge\BrickletOzone;
 
 const HOST = 'localhost';
 const PORT = 4223;
-const UID = 'XYZ'; // Change to your UID
+const UID = 'XYZ'; // Change XYZ to the UID of your Ozone Bricklet
 
 // Callback function for ozone concentration callback (parameter has unit ppb)
 function cb_ozoneConcentration($ozone_concentration)
@@ -23,7 +23,8 @@ $ipcon->connect(HOST, PORT); // Connect to brickd
 // Don't use device before ipcon is connected
 
 // Register ozone concentration callback to function cb_ozoneConcentration
-$o->registerCallback(BrickletOzone::CALLBACK_OZONE_CONCENTRATION, 'cb_ozoneConcentration');
+$o->registerCallback(BrickletOzone::CALLBACK_OZONE_CONCENTRATION,
+                     'cb_ozoneConcentration');
 
 // Set period for ozone concentration callback to 1s (1000ms)
 // Note: The ozone concentration callback is only called every second

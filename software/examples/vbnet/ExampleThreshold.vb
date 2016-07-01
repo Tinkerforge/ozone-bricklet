@@ -4,7 +4,7 @@ Imports Tinkerforge
 Module ExampleThreshold
     Const HOST As String = "localhost"
     Const PORT As Integer = 4223
-    Const UID As String = "XYZ" ' Change to your UID
+    Const UID As String = "XYZ" ' Change XYZ to the UID of your Ozone Bricklet
 
     ' Callback subroutine for ozone concentration reached callback (parameter has unit ppb)
     Sub OzoneConcentrationReachedCB(ByVal sender As BrickletOzone, _

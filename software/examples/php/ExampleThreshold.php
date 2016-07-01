@@ -8,7 +8,7 @@ use Tinkerforge\BrickletOzone;
 
 const HOST = 'localhost';
 const PORT = 4223;
-const UID = 'XYZ'; // Change to your UID
+const UID = 'XYZ'; // Change XYZ to the UID of your Ozone Bricklet
 
 // Callback function for ozone concentration reached callback (parameter has unit ppb)
 function cb_ozoneConcentrationReached($ozone_concentration)

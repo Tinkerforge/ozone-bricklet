@@ -4,7 +4,7 @@ function matlab_example_simple()
 
     HOST = 'localhost';
     PORT = 4223;
-    UID = 'XYZ'; % Change to your UID
+    UID = 'XYZ'; % Change XYZ to the UID of your Ozone Bricklet
 
     ipcon = IPConnection(); % Create IP connection
     o = handle(BrickletOzone(UID, ipcon), 'CallbackProperties'); % Create device object

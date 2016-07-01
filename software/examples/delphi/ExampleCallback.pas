@@ -12,20 +12,22 @@ type
     ipcon: TIPConnection;
     o: TBrickletOzone;
   public
-    procedure OzoneConcentrationCB(sender: TBrickletOzone; const ozoneConcentration: word);
+    procedure OzoneConcentrationCB(sender: TBrickletOzone;
+                                   const ozoneConcentration: word);
     procedure Execute;
   end;
 
 const
   HOST = 'localhost';
   PORT = 4223;
-  UID = 'XYZ'; { Change to your UID }
+  UID = 'XYZ'; { Change XYZ to the UID of your Ozone Bricklet }
 
 var
   e: TExample;
 
 { Callback procedure for ozone concentration callback (parameter has unit ppb) }
-procedure TExample.OzoneConcentrationCB(sender: TBrickletOzone; const ozoneConcentration: word);
+procedure TExample.OzoneConcentrationCB(sender: TBrickletOzone;
+                                        const ozoneConcentration: word);
 begin
   WriteLn(Format('Ozone Concentration: %d ppb', [ozoneConcentration]));
 end;

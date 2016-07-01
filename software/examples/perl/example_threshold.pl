@@ -5,7 +5,7 @@ use Tinkerforge::BrickletOzone;
 
 use constant HOST => 'localhost';
 use constant PORT => 4223;
-use constant UID => 'XYZ'; # Change to your UID
+use constant UID => 'XYZ'; # Change XYZ to the UID of your Ozone Bricklet
 
 # Callback subroutine for ozone concentration reached callback (parameter has unit ppb)
 sub cb_ozone_concentration_reached
