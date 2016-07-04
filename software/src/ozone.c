@@ -28,9 +28,6 @@
 #include "brickletlib/bricklet_simple.h"
 #include "config.h"
 
-
-#define OZONE_CONCENTRATION_AVERAGE 50
-
 #define SIMPLE_UNIT_OZONE_CONCENTRATION 0
 #define SIMPLE_UNIT_ANALOG_VALUE 1
 
