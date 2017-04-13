@@ -25,7 +25,7 @@ class Example
 		o.SetDebouncePeriod(10000);
 
 		// Register ozone concentration reached callback to function OzoneConcentrationReachedCB
-		o.OzoneConcentrationReached += OzoneConcentrationReachedCB;
+		o.OzoneConcentrationReachedCallback += OzoneConcentrationReachedCB;
 
 		// Configure threshold for ozone concentration "greater than 20 ppb" (unit is ppb)
 		o.SetOzoneConcentrationCallbackThreshold('>', 20, 0);

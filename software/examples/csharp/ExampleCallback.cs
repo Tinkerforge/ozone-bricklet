@@ -22,7 +22,7 @@ class Example
 		// Don't use device before ipcon is connected
 
 		// Register ozone concentration callback to function OzoneConcentrationCB
-		o.OzoneConcentration += OzoneConcentrationCB;
+		o.OzoneConcentrationCallback += OzoneConcentrationCB;
 
 		// Set period for ozone concentration callback to 1s (1000ms)
 		// Note: The ozone concentration callback is only called every second
