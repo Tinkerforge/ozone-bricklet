@@ -16,7 +16,7 @@ o@SetDebouncePeriod[10000]
 (*Callback function for ozone concentration reached callback (parameter has unit ppb)*)
 OzoneConcentrationReachedCB[sender_,ozoneConcentration_]:=
  Print["Ozone Concentration: "<>ToString[N[Quantity[ozoneConcentration,"ppb"]]]]
-AddEventHandler[o@OzoneConcentrationReached,OzoneConcentrationReachedCB]
+AddEventHandler[o@OzoneConcentrationReachedCallback,OzoneConcentrationReachedCB]
 
 (*Configure threshold for ozone concentration "greater than 20 ppb" (unit is ppb)*)
 option=Tinkerforge`BrickletOzone`THRESHOLDUOPTIONUGREATER

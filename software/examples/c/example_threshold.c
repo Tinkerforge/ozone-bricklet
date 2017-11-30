@@ -33,7 +33,8 @@ int main(void) {
 	// Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 	ozone_set_debounce_period(&o, 10000);
 
-	// Register ozone concentration reached callback to function cb_ozone_concentration_reached
+	// Register ozone concentration reached callback
+	// to function cb_ozone_concentration_reached
 	ozone_register_callback(&o,
 	                        OZONE_CALLBACK_OZONE_CONCENTRATION_REACHED,
 	                        (void *)cb_ozone_concentration_reached,

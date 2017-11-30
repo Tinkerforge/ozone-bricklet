@@ -24,7 +24,8 @@ class Example
 		// Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 		o.SetDebouncePeriod(10000);
 
-		// Register ozone concentration reached callback to function OzoneConcentrationReachedCB
+		// Register ozone concentration reached callback
+		// to function OzoneConcentrationReachedCB
 		o.OzoneConcentrationReachedCallback += OzoneConcentrationReachedCB;
 
 		// Configure threshold for ozone concentration "greater than 20 ppb" (unit is ppb)

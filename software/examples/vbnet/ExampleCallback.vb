@@ -20,7 +20,7 @@ Module ExampleCallback
         ' Don't use device before ipcon is connected
 
         ' Register ozone concentration callback to subroutine OzoneConcentrationCB
-        AddHandler o.OzoneConcentration, AddressOf OzoneConcentrationCB
+        AddHandler o.OzoneConcentrationCallback, AddressOf OzoneConcentrationCB
 
         ' Set period for ozone concentration callback to 1s (1000ms)
         ' Note: The ozone concentration callback is only called every second

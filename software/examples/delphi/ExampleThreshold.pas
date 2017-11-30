@@ -47,7 +47,8 @@ begin
   { Get threshold callbacks with a debounce time of 10 seconds (10000ms) }
   o.SetDebouncePeriod(10000);
 
-  { Register ozone concentration reached callback to procedure OzoneConcentrationReachedCB }
+  { Register ozone concentration reached callback
+    to procedure OzoneConcentrationReachedCB }
   o.OnOzoneConcentrationReached := {$ifdef FPC}@{$endif}OzoneConcentrationReachedCB;
 
   { Configure threshold for ozone concentration "greater than 20 ppb" (unit is ppb) }

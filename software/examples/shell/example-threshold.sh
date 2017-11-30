@@ -10,7 +10,7 @@ tinkerforge call ozone-bricklet $uid set-debounce-period 10000
 tinkerforge dispatch ozone-bricklet $uid ozone-concentration-reached &
 
 # Configure threshold for ozone concentration "greater than 20 ppb" (unit is ppb)
-tinkerforge call ozone-bricklet $uid set-ozone-concentration-callback-threshold greater 20 0
+tinkerforge call ozone-bricklet $uid set-ozone-concentration-callback-threshold threshold-option-greater 20 0
 
 echo "Press key to exit"; read dummy
 
