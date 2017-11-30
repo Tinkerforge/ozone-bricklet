@@ -15,8 +15,8 @@ function matlab_example_threshold()
     % Get threshold callbacks with a debounce time of 10 seconds (10000ms)
     o.setDebouncePeriod(10000);
 
-    % Register ozone concentration reached callback to
-    % function cb_ozone_concentration_reached
+    % Register ozone concentration reached callback to function
+    % cb_ozone_concentration_reached
     set(o, 'OzoneConcentrationReachedCallback',
         @(h, e) cb_ozone_concentration_reached(e));
 

@@ -22,8 +22,8 @@ if __name__ == "__main__":
     # Get threshold callbacks with a debounce time of 10 seconds (10000ms)
     o.set_debounce_period(10000)
 
-    # Register ozone concentration reached callback to
-    # function cb_ozone_concentration_reached
+    # Register ozone concentration reached callback to function
+    # cb_ozone_concentration_reached
     o.register_callback(o.CALLBACK_OZONE_CONCENTRATION_REACHED,
                         cb_ozone_concentration_reached)
 

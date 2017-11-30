@@ -22,8 +22,8 @@ Module ExampleThreshold
         ' Get threshold callbacks with a debounce time of 10 seconds (10000ms)
         o.SetDebouncePeriod(10000)
 
-        ' Register ozone concentration reached callback to
-        ' subroutine OzoneConcentrationReachedCB
+        ' Register ozone concentration reached callback to subroutine
+        ' OzoneConcentrationReachedCB
         AddHandler o.OzoneConcentrationReachedCallback, _
                    AddressOf OzoneConcentrationReachedCB
 
