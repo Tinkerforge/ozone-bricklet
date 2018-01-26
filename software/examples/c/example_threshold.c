@@ -11,7 +11,7 @@
 void cb_ozone_concentration_reached(uint16_t ozone_concentration, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 
-	printf("Ozone Concentration: %d ppb\n", ozone_concentration);
+	printf("Ozone Concentration: %u ppb\n", ozone_concentration);
 }
 
 int main(void) {

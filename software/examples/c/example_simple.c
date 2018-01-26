@@ -30,7 +30,7 @@ int main(void) {
 		return 1;
 	}
 
-	printf("Ozone Concentration: %d ppb\n", ozone_concentration);
+	printf("Ozone Concentration: %u ppb\n", ozone_concentration);
 
 	printf("Press key to exit\n");
 	getchar();
