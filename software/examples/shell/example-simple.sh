@@ -3,5 +3,5 @@
 
 uid=XYZ # Change XYZ to the UID of your Ozone Bricklet
 
-# Get current ozone concentration (unit is ppb)
+# Get current ozone concentration
 tinkerforge call ozone-bricklet $uid get-ozone-concentration

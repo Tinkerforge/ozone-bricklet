@@ -3,7 +3,7 @@
 
 uid=XYZ # Change XYZ to the UID of your Ozone Bricklet
 
-# Handle incoming ozone concentration callbacks (parameter has unit ppb)
+# Handle incoming ozone concentration callbacks
 tinkerforge dispatch ozone-bricklet $uid ozone-concentration &
 
 # Set period for ozone concentration callback to 1s (1000ms)

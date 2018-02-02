@@ -41,7 +41,7 @@
 
                 ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
                     function (connectReason) {
-                        // Get current ozone concentration (unit is ppb)
+                        // Get current ozone concentration
                         o.getOzoneConcentration(
                             function (ozoneConcentration) {
                                 textArea.value += 'Ozone Concentration: ' + ozoneConcentration + ' ppb\n';

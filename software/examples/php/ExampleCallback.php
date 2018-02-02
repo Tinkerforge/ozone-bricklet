@@ -10,7 +10,7 @@ const HOST = 'localhost';
 const PORT = 4223;
 const UID = 'XYZ'; // Change XYZ to the UID of your Ozone Bricklet
 
-// Callback function for ozone concentration callback (parameter has unit ppb)
+// Callback function for ozone concentration callback
 function cb_ozoneConcentration($ozone_concentration)
 {
     echo "Ozone Concentration: $ozone_concentration ppb\n";

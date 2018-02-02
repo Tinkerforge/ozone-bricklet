@@ -7,7 +7,7 @@ use constant HOST => 'localhost';
 use constant PORT => 4223;
 use constant UID => 'XYZ'; # Change XYZ to the UID of your Ozone Bricklet
 
-# Callback subroutine for ozone concentration callback (parameter has unit ppb)
+# Callback subroutine for ozone concentration callback
 sub cb_ozone_concentration
 {
     my ($ozone_concentration) = @_;

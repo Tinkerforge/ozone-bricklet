@@ -17,7 +17,7 @@ public class ExampleCallback {
 		ipcon.connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
-		// Add ozone concentration listener (parameter has unit ppb)
+		// Add ozone concentration listener
 		o.addOzoneConcentrationListener(new BrickletOzone.OzoneConcentrationListener() {
 			public void ozoneConcentration(int ozoneConcentration) {
 				System.out.println("Ozone Concentration: " + ozoneConcentration + " ppb");

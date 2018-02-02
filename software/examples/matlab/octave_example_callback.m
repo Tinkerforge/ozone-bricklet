@@ -23,7 +23,7 @@ function octave_example_callback()
     ipcon.disconnect();
 end
 
-% Callback function for ozone concentration callback (parameter has unit ppb)
+% Callback function for ozone concentration callback
 function cb_ozone_concentration(e)
     fprintf("Ozone Concentration: %d ppb\n", e.ozoneConcentration);
 end

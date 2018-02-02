@@ -6,7 +6,7 @@ Module ExampleThreshold
     Const PORT As Integer = 4223
     Const UID As String = "XYZ" ' Change XYZ to the UID of your Ozone Bricklet
 
-    ' Callback subroutine for ozone concentration reached callback (parameter has unit ppb)
+    ' Callback subroutine for ozone concentration reached callback
     Sub OzoneConcentrationReachedCB(ByVal sender As BrickletOzone, _
                                     ByVal ozoneConcentration As Integer)
         Console.WriteLine("Ozone Concentration: " + ozoneConcentration.ToString() + " ppb")
@@ -27,7 +27,7 @@ Module ExampleThreshold
         AddHandler o.OzoneConcentrationReachedCallback, _
                    AddressOf OzoneConcentrationReachedCB
 
-        ' Configure threshold for ozone_concentration "greater than 20 ppb" (unit is ppb)
+        ' Configure threshold for ozone_concentration "greater than 20 ppb"
         o.SetOzoneConcentrationCallbackThreshold(">"C, 20, 0)
 
         Console.WriteLine("Press key to exit")

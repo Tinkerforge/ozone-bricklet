@@ -22,12 +22,12 @@ Notebook[{
    RowBox[{"o", "@", RowBox[{"SetDebouncePeriod", "[", "10000", "]"}]}],
    RowBox[{"
 "}],
-   RowBox[{"(*", "Callback function for ozone concentration reached callback (parameter has unit ppb)", "*)"}],
+   RowBox[{"(*", "Callback function for ozone concentration reached callback", "*)"}],
    RowBox[{RowBox[{"OzoneConcentrationReachedCB", "[", RowBox[{"sender_", ",", "ozoneConcentration_"}], "]"}], ":=", "\[IndentingNewLine]", RowBox[{"Print", "[", RowBox[{"\"\<Ozone Concentration: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"ozoneConcentration", ",", "\"\<ppb\>\""}], "]"}], "]"}], "]"}]}], "]"}]}],
    RowBox[{"AddEventHandler", "[", RowBox[{RowBox[{"o", "@", "OzoneConcentrationReachedCallback"}], ",", "OzoneConcentrationReachedCB"}], "]"}],
    RowBox[{"
 "}],
-   RowBox[{"(*", "Configure threshold for ozone concentration ", "\"\<greater than 20 ppb\>\"", " (unit is ppb)", "*)"}],
+   RowBox[{"(*", "Configure threshold for ozone concentration ", "\"\<greater than 20 ppb\>\"", "", "*)"}],
    RowBox[{"option", "=", "Tinkerforge`BrickletOzone`THRESHOLDUOPTIONUGREATER"}],
    RowBox[{"o", "@", RowBox[{"SetOzoneConcentrationCallbackThreshold", "[", RowBox[{"option", ",", "20", ",", "0"}], "]"}]}],
    RowBox[{"

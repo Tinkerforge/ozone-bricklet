@@ -25,7 +25,7 @@ const
 var
   e: TExample;
 
-{ Callback procedure for ozone concentration reached callback (parameter has unit ppb) }
+{ Callback procedure for ozone concentration reached callback }
 procedure TExample.OzoneConcentrationReachedCB(sender: TBrickletOzone;
                                                const ozoneConcentration: word);
 begin
@@ -51,7 +51,7 @@ begin
     OzoneConcentrationReachedCB }
   o.OnOzoneConcentrationReached := {$ifdef FPC}@{$endif}OzoneConcentrationReachedCB;
 
-  { Configure threshold for ozone concentration "greater than 20 ppb" (unit is ppb) }
+  { Configure threshold for ozone concentration "greater than 20 ppb" }
   o.SetOzoneConcentrationCallbackThreshold('>', 20, 0);
 
   WriteLn('Press key to exit');

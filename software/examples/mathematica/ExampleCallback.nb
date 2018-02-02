@@ -18,7 +18,7 @@ Notebook[{
    RowBox[{"ipcon", "@", RowBox[{"Connect", "[", RowBox[{"host", ",", "port"}], "]"}]}],
    RowBox[{"
 "}],
-   RowBox[{"(*", "Callback function for ozone concentration callback (parameter has unit ppb)", "*)"}],
+   RowBox[{"(*", "Callback function for ozone concentration callback", "*)"}],
    RowBox[{RowBox[{"OzoneConcentrationCB", "[", RowBox[{"sender_", ",", "ozoneConcentration_"}], "]"}], ":=", "\[IndentingNewLine]", RowBox[{"Print", "[", RowBox[{"\"\<Ozone Concentration: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"ozoneConcentration", ",", "\"\<ppb\>\""}], "]"}], "]"}], "]"}]}], "]"}]}],
    RowBox[{"AddEventHandler", "[", RowBox[{RowBox[{"o", "@", "OzoneConcentrationCallback"}], ",", "OzoneConcentrationCB"}], "]"}],
    RowBox[{"

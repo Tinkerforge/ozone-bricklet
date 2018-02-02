@@ -7,7 +7,7 @@ class Example
 	private static int PORT = 4223;
 	private static string UID = "XYZ"; // Change XYZ to the UID of your Ozone Bricklet
 
-	// Callback function for ozone concentration callback (parameter has unit ppb)
+	// Callback function for ozone concentration callback
 	static void OzoneConcentrationCB(BrickletOzone sender, int ozoneConcentration)
 	{
 		Console.WriteLine("Ozone Concentration: " + ozoneConcentration + " ppb");

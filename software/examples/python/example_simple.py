@@ -15,7 +15,7 @@ if __name__ == "__main__":
     ipcon.connect(HOST, PORT) # Connect to brickd
     # Don't use device before ipcon is connected
 
-    # Get current ozone concentration (unit is ppb)
+    # Get current ozone concentration
     ozone_concentration = o.get_ozone_concentration()
     print("Ozone Concentration: " + str(ozone_concentration) + " ppb")
 

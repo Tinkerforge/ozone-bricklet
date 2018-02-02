@@ -25,7 +25,7 @@ const
 var
   e: TExample;
 
-{ Callback procedure for ozone concentration callback (parameter has unit ppb) }
+{ Callback procedure for ozone concentration callback }
 procedure TExample.OzoneConcentrationCB(sender: TBrickletOzone;
                                         const ozoneConcentration: word);
 begin

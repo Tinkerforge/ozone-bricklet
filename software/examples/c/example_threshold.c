@@ -7,7 +7,7 @@
 #define PORT 4223
 #define UID "XYZ" // Change XYZ to the UID of your Ozone Bricklet
 
-// Callback function for ozone concentration reached callback (parameter has unit ppb)
+// Callback function for ozone concentration reached callback
 void cb_ozone_concentration_reached(uint16_t ozone_concentration, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 
@@ -40,7 +40,7 @@ int main(void) {
 	                        (void *)cb_ozone_concentration_reached,
 	                        NULL);
 
-	// Configure threshold for ozone concentration "greater than 20 ppb" (unit is ppb)
+	// Configure threshold for ozone concentration "greater than 20 ppb"
 	ozone_set_ozone_concentration_callback_threshold(&o, '>', 20, 0);
 
 	printf("Press key to exit\n");

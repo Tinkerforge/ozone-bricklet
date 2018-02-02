@@ -15,7 +15,7 @@ class Example
 		ipcon.Connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
-		// Get current ozone concentration (unit is ppb)
+		// Get current ozone concentration
 		int ozoneConcentration = o.GetOzoneConcentration();
 		Console.WriteLine("Ozone Concentration: " + ozoneConcentration + " ppb");
 

@@ -17,7 +17,7 @@ public class ExampleSimple {
 		ipcon.connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
-		// Get current ozone concentration (unit is ppb)
+		// Get current ozone concentration
 		int ozoneConcentration = o.getOzoneConcentration(); // Can throw com.tinkerforge.TimeoutException
 		System.out.println("Ozone Concentration: " + ozoneConcentration + " ppb");
 

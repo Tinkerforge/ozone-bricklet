@@ -19,12 +19,12 @@ ipcon.connect HOST, PORT # Connect to brickd
 # Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 o.set_debounce_period 10000
 
-# Register ozone concentration reached callback (parameter has unit ppb)
+# Register ozone concentration reached callback
 o.register_callback(BrickletOzone::CALLBACK_OZONE_CONCENTRATION_REACHED) do |ozone_concentration|
   puts "Ozone Concentration: #{ozone_concentration} ppb"
 end
 
-# Configure threshold for ozone concentration "greater than 20 ppb" (unit is ppb)
+# Configure threshold for ozone concentration "greater than 20 ppb"
 o.set_ozone_concentration_callback_threshold '>', 20, 0
 
 puts 'Press key to exit'

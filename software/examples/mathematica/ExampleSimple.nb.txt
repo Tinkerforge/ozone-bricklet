@@ -10,7 +10,7 @@ ipcon=NETNew["Tinkerforge.IPConnection"]
 o=NETNew["Tinkerforge.BrickletOzone",uid,ipcon]
 ipcon@Connect[host,port]
 
-(*Get current ozone concentration (unit is ppb)*)
+(*Get current ozone concentration*)
 Print["Ozone Concentration: "<>ToString[N[Quantity[o@GetOzoneConcentration[],"ppb"]]]]
 
 (*Clean up*)

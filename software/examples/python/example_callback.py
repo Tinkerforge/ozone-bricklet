@@ -8,7 +8,7 @@ UID = "XYZ" # Change XYZ to the UID of your Ozone Bricklet
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_ozone import BrickletOzone
 
-# Callback function for ozone concentration callback (parameter has unit ppb)
+# Callback function for ozone concentration callback
 def cb_ozone_concentration(ozone_concentration):
     print("Ozone Concentration: " + str(ozone_concentration) + " ppb")
 

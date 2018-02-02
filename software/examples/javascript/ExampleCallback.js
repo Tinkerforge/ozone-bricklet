@@ -25,7 +25,7 @@ ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
 
 // Register ozone concentration callback
 o.on(Tinkerforge.BrickletOzone.CALLBACK_OZONE_CONCENTRATION,
-    // Callback function for ozone concentration callback (parameter has unit ppb)
+    // Callback function for ozone concentration callback
     function (ozoneConcentration) {
         console.log('Ozone Concentration: ' + ozoneConcentration + ' ppb');
     }

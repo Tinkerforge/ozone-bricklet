@@ -36,7 +36,7 @@ begin
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
-  { Get current ozone concentration (unit is ppb) }
+  { Get current ozone concentration }
   ozoneConcentration := o.GetOzoneConcentration;
   WriteLn(Format('Ozone Concentration: %d ppb', [ozoneConcentration]));
 

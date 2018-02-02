@@ -7,7 +7,7 @@
 #define PORT 4223
 #define UID "XYZ" // Change XYZ to the UID of your Ozone Bricklet
 
-// Callback function for ozone concentration callback (parameter has unit ppb)
+// Callback function for ozone concentration callback
 void cb_ozone_concentration(uint16_t ozone_concentration, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 

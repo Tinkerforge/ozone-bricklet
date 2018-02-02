@@ -12,7 +12,7 @@ function matlab_example_simple()
     ipcon.connect(HOST, PORT); % Connect to brickd
     % Don't use device before ipcon is connected
 
-    % Get current ozone concentration (unit is ppb)
+    % Get current ozone concentration
     ozoneConcentration = o.getOzoneConcentration();
     fprintf('Ozone Concentration: %i ppb\n', ozoneConcentration);
 

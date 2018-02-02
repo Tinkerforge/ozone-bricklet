@@ -10,7 +10,7 @@ ipcon=NETNew["Tinkerforge.IPConnection"]
 o=NETNew["Tinkerforge.BrickletOzone",uid,ipcon]
 ipcon@Connect[host,port]
 
-(*Callback function for ozone concentration callback (parameter has unit ppb)*)
+(*Callback function for ozone concentration callback*)
 OzoneConcentrationCB[sender_,ozoneConcentration_]:=
  Print["Ozone Concentration: "<>ToString[N[Quantity[ozoneConcentration,"ppb"]]]]
 AddEventHandler[o@OzoneConcentrationCallback,OzoneConcentrationCB]

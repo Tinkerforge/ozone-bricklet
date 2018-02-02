@@ -10,7 +10,7 @@ const HOST = 'localhost';
 const PORT = 4223;
 const UID = 'XYZ'; // Change XYZ to the UID of your Ozone Bricklet
 
-// Callback function for ozone concentration reached callback (parameter has unit ppb)
+// Callback function for ozone concentration reached callback
 function cb_ozoneConcentrationReached($ozone_concentration)
 {
     echo "Ozone Concentration: $ozone_concentration ppb\n";
@@ -29,7 +29,7 @@ $o->setDebouncePeriod(10000);
 $o->registerCallback(BrickletOzone::CALLBACK_OZONE_CONCENTRATION_REACHED,
                      'cb_ozoneConcentrationReached');
 
-// Configure threshold for ozone concentration "greater than 20 ppb" (unit is ppb)
+// Configure threshold for ozone concentration "greater than 20 ppb"
 $o->setOzoneConcentrationCallbackThreshold('>', 20, 0);
 
 echo "Press ctrl+c to exit\n";

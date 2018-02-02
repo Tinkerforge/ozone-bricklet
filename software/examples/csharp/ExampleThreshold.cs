@@ -7,7 +7,7 @@ class Example
 	private static int PORT = 4223;
 	private static string UID = "XYZ"; // Change XYZ to the UID of your Ozone Bricklet
 
-	// Callback function for ozone concentration reached callback (parameter has unit ppb)
+	// Callback function for ozone concentration reached callback
 	static void OzoneConcentrationReachedCB(BrickletOzone sender, int ozoneConcentration)
 	{
 		Console.WriteLine("Ozone Concentration: " + ozoneConcentration + " ppb");
@@ -28,7 +28,7 @@ class Example
 		// OzoneConcentrationReachedCB
 		o.OzoneConcentrationReachedCallback += OzoneConcentrationReachedCB;
 
-		// Configure threshold for ozone concentration "greater than 20 ppb" (unit is ppb)
+		// Configure threshold for ozone concentration "greater than 20 ppb"
 		o.SetOzoneConcentrationCallbackThreshold('>', 20, 0);
 
 		Console.WriteLine("Press enter to exit");

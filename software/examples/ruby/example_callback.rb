@@ -16,7 +16,7 @@ o = BrickletOzone.new UID, ipcon # Create device object
 ipcon.connect HOST, PORT # Connect to brickd
 # Don't use device before ipcon is connected
 
-# Register ozone concentration callback (parameter has unit ppb)
+# Register ozone concentration callback
 o.register_callback(BrickletOzone::CALLBACK_OZONE_CONCENTRATION) do |ozone_concentration|
   puts "Ozone Concentration: #{ozone_concentration} ppb"
 end

@@ -23,7 +23,7 @@ int main(void) {
 	}
 	// Don't use device before ipcon is connected
 
-	// Get current ozone concentration (unit is ppb)
+	// Get current ozone concentration
 	uint16_t ozone_concentration;
 	if(ozone_get_ozone_concentration(&o, &ozone_concentration) < 0) {
 		fprintf(stderr, "Could not get ozone concentration, probably timeout\n");

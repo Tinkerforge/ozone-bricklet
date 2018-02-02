@@ -44,14 +44,14 @@
                         // Get threshold callbacks with a debounce time of 10 seconds (10000ms)
                         o.setDebouncePeriod(10000);
 
-                        // Configure threshold for ozone concentration "greater than 20 ppb" (unit is ppb)
+                        // Configure threshold for ozone concentration "greater than 20 ppb"
                         o.setOzoneConcentrationCallbackThreshold('>', 20, 0);
                     }
                 );
 
                 // Register ozone concentration reached callback
                 o.on(Tinkerforge.BrickletOzone.CALLBACK_OZONE_CONCENTRATION_REACHED,
-                    // Callback function for ozone concentration reached callback (parameter has unit ppb)
+                    // Callback function for ozone concentration reached callback
                     function (ozoneConcentration) {
                         textArea.value += 'Ozone Concentration: ' + ozoneConcentration + ' ppb\n';
                         textArea.scrollTop = textArea.scrollHeight;

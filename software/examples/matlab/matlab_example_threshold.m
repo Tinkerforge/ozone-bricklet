@@ -20,14 +20,14 @@ function matlab_example_threshold()
     set(o, 'OzoneConcentrationReachedCallback',
         @(h, e) cb_ozone_concentration_reached(e));
 
-    % Configure threshold for ozone concentration "greater than 20 ppb" (unit is ppb)
+    % Configure threshold for ozone concentration "greater than 20 ppb"
     o.setOzoneConcentrationCallbackThreshold('>', 20, 0);
 
     input('Press key to exit\n', 's');
     ipcon.disconnect();
 end
 
-% Callback function for ozone concentration reached callback (parameter has unit ppb)
+% Callback function for ozone concentration reached callback
 function cb_ozone_concentration_reached(e)
     fprintf('Ozone Concentration: %i ppb\n', e.ozoneConcentration);
 end
