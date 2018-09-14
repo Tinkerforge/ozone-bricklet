@@ -27,7 +27,7 @@ Module ExampleThreshold
         AddHandler o.OzoneConcentrationReachedCallback, _
                    AddressOf OzoneConcentrationReachedCB
 
-        ' Configure threshold for ozone_concentration "greater than 20 ppb"
+        ' Configure threshold for ozone concentration "greater than 20 ppb"
         o.SetOzoneConcentrationCallbackThreshold(">"C, 20, 0)
 
         Console.WriteLine("Press key to exit")
