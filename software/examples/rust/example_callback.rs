@@ -12,10 +12,10 @@ fn main() -> Result<(), Box<dyn Error>> {
     ipcon.connect((HOST, PORT)).recv()??; // Connect to brickd.
                                           // Don't use device before ipcon is connected.
 
-    // Create receiver for ozone concentration events.
-    let ozone_concentration_receiver = o.get_ozone_concentration_receiver();
+    let ozone_concentration_receiver = o.get_ozone_concentration_callback_receiver();
 
-    // Spawn thread to handle received events. This thread ends when the `o` object
+    // Spawn thread to handle received callback messages.
+    // This thread ends when the `o` object
     // is dropped, so there is no need for manual cleanup.
     thread::spawn(move || {
         for ozone_concentration in ozone_concentration_receiver {
