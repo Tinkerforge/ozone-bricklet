@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"tinkerforge/ipconnection"
-	"tinkerforge/ozone_bricklet"
+	"github.com/tinkerforge/go-api-bindings/ipconnection"
+	"github.com/tinkerforge/go-api-bindings/ozone_bricklet"
 )
 
 const ADDR string = "localhost:4223"
