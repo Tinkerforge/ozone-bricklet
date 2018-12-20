@@ -15,8 +15,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     // Get threshold receivers with a debounce time of 10 seconds (10000ms).
     o.set_debounce_period(10000);
 
-    let ozone_concentration_reached_receiver =
-        o.get_ozone_concentration_reached_callback_receiver();
+    let ozone_concentration_reached_receiver = o.get_ozone_concentration_reached_callback_receiver();
 
     // Spawn thread to handle received callback messages.
     // This thread ends when the `o` object
