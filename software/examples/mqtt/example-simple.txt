@@ -2,5 +2,5 @@
 
 setup:
 	# Get current ozone concentration
-	subscribe to tinkerforge/response/ozone/XYZ/get_ozone_concentration
+	subscribe to tinkerforge/response/ozone_bricklet/XYZ/get_ozone_concentration
 	publish '' to tinkerforge/request/ozone_bricklet/XYZ/get_ozone_concentration 
