@@ -33,7 +33,7 @@ int main(void) {
 	// Register ozone concentration callback to function cb_ozone_concentration
 	ozone_register_callback(&o,
 	                        OZONE_CALLBACK_OZONE_CONCENTRATION,
-	                        (void *)cb_ozone_concentration,
+	                        (void (*)(void))cb_ozone_concentration,
 	                        NULL);
 
 	// Set period for ozone concentration callback to 1s (1000ms)

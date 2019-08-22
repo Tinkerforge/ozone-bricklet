@@ -37,7 +37,7 @@ int main(void) {
 	// cb_ozone_concentration_reached
 	ozone_register_callback(&o,
 	                        OZONE_CALLBACK_OZONE_CONCENTRATION_REACHED,
-	                        (void *)cb_ozone_concentration_reached,
+	                        (void (*)(void))cb_ozone_concentration_reached,
 	                        NULL);
 
 	// Configure threshold for ozone concentration "greater than 20 ppb"
