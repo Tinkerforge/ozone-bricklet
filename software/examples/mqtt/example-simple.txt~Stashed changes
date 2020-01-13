@@ -1,0 +1,6 @@
+# Change XYZ to the UID of your Ozone Bricklet
+
+setup:
+	# Get current ozone concentration
+	subscribe to tinkerforge/response/ozone_bricklet/XYZ/get_ozone_concentration
+	publish '' to tinkerforge/request/ozone_bricklet/XYZ/get_ozone_concentration
